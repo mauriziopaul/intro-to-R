@@ -1,17 +1,17 @@
 # Site settings
 highlighter: rouge
 
-title : Simple Blog (mauriziopaul)
+title : HtLtC - An Introduction to R
 author :
   name : Paul L. Maurizio 
   github : mauriziopaul
   twitter : TweetNTD
   feedburner : nil
 # email : paul.maurizio@gmail.com
-description : Statistical modeling, and genetics of host-pathogen interactions
-production_url : https://mauriziopaul.github.io/blog
-baseurl : "/blog" # the subpath of your site, e.g. /blog
-url : "http://mauriziopaul.github.io" # the base hostname & protocol for your site
+description : Teaching resources for How to Learn to Code - Intro to R (2016, UNC-Chapel Hill)
+production_url : https://mauriziopaul.github.io/intro-to-R
+baseurl : "/intro-to-R" # the subpath
+url : "http://mauriziopaul.github.io" # the base hostname & protocol
 twitter_username : TweetNTD
 github_username :  mauriziopaul
 

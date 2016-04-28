@@ -1,11 +1,13 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Overview
+permalink: /overview/
 ---
 
-### Me
-You can find out more about me at my at my main GitHub.io page, [https://mauriziopaul.github.io](https://mauriziopaul.github.io), or at my GitHub user page: {% include icon-github.html username="mauriziopaul" %}
+### Teachers
+You can find out more about Paul at his main GitHub.io page, [https://mauriziopaul.github.io](https://mauriziopaul.github.io), or at his GitHub user page: {% include icon-github.html username="mauriziopaul" %}
+
+You can find out more about Katrina at her GitHub user page: {% include icon-github.html username="kutchko" %}
 
 
 ### Jekyll
