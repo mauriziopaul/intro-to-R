@@ -8,15 +8,18 @@ permalink: /overview/
 The WordPress website for the HtLtC summer series can be found here:
 [howtolearntocode](http://howtolearntocode.web.unc.edu).
 
-### R Teachers
+### Suggested Topics
+1. Introduction
+2. Data Frames and Operations
+3. Plotting
+4. Apply
+5. Data Mangement
+6. Advanced Visualization (ggplot2)
+7. Data Modeling
+
+Syllabus and Assignments forthcoming.
+
+### R Instructors
 You can find out more about Paul at his main GitHub.io page, [https://mauriziopaul.github.io](https://mauriziopaul.github.io), or at his GitHub user page: {% include icon-github.html username="mauriziopaul" %}
 
 You can find out more about Katrina at her GitHub user page: {% include icon-github.html username="kutchko" %}
-
-
-### About Jekyll
-This blog is based on the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/). You can find the source code for Jekyll and source code for the Jekyll new theme at the following links:
-
-{% include icon-github.html username="jglovier" %}
-
-{% include icon-github.html username="jekyll" %}
