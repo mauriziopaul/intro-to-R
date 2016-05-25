@@ -45,14 +45,14 @@ b. Win: RStudio 0.99.902 - Windows Vista/7/8/10, or latest/appropriate version
 
 ## Evaluating R
 
-| Advantages       					| Disadvantages    |
-| ------------- 					| -------------|
+| **Advantages**       					| **Disadvantages** |
 | Open-Source					   	| Packages are of varying quality |
 | Academic/professional community	| Very different from other standards [^standards] |
 | High-quality visualization	 	| Less intuitive plotting |
 | Multi-dimensional/large-scale data analysis	| Memory (RAM) use is not the best |
 | Extensive documentation			| Overwhelming / disparate references |
 | There are many ways to do the same thing | There are many ways to do the same thing | 
+
 
 
 
