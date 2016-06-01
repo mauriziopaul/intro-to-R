@@ -4,6 +4,13 @@ title:  "Lesson 01 - Getting Started with R"
 categories: jekyll 
 ---
 
+---
+
+* TOC
+{:toc}
+
+---
+
 We will be using RStudio for all of the R lessons.  You should first install ```R``` (or preferably update your current ```R``` installation), and then install ```RStudio```.
 
 ---
@@ -34,7 +41,6 @@ b. Win: RStudio 0.99.902 - Windows Vista/7/8/10, or latest/appropriate version
 3. RStudio is now available in your Applications or Program Files folder.
 
 
-
 ---
 
 ## Open RStudio
@@ -51,14 +57,105 @@ b. Win: RStudio 0.99.902 - Windows Vista/7/8/10, or latest/appropriate version
 | High-quality visualization	 	| Less intuitive plotting |
 | Multi-dimensional/large-scale data analysis	| Memory (RAM) use is not the best |
 | Extensive documentation			| Overwhelming / disparate references |
-| There are many ways to do the same thing | There are many ways to do the same thing | 
-
-
+| There are many ways to do the same thing | There are many ways to do the same thing |
 
 
 ---
 
 ## R is a Scientific Calculator
+
+You can follow along by starting in the lower left-hand corner of your RStudio session. This is the **console**, where you can code _interactively_.
+  
+```
+> 1+1
+```
+
+The carat, ```>```, indicates the beginning of a line where you have entered some code, in this case an **operation**.
+
+After you are done typing, press enter, and below it should be the **result**. You can ignore the ```[1]``` for now, and just look at what follows.
+
+```
+[1] 2
+```
+
+Try something else:
+
+```
+> 5*3
+[1] 15
+```
+
+Many other basic operations are available:[^1]
+
+[^1]: Note that the ```log()``` function defaults to _natural_ log, a.k.a. "ln", or ```log(..., base=exp(1))```. You might mistake it for ```log10```, or ```log(..., base=10)```.
+
+
+```
+> 4/3
+[1] 1.333333
+
+> 10^2
+[1] 100
+
+> 10e2
+[1] 1000
+
+> log(1)
+[1] 0
+```
+
+That last expression uses some operator with parentheses, which indicates that you are using a **function**. We will discuss functions and what you put inside the parentheses later. Parentheses can also be used to group operations (you all remember **PEMDAS**, right?).
+
+Sometimes the instruction you give does not make sense to ```R```.
+
+```
+> log(-1)
+[1] NaN
+Warning message:
+In log(-1) : NaNs produced
+```
+
+See that we have received output, ```[1] NaN```, as well a warning message describing the warning. When something goes wrong, **R** will give you **warnings**, and **errors**, which are more ``severe.'' [^2] We will go over **troubleshooting** these warnings and errors later.
+
+[^2]: And hopefully not too many **segfaults** -- segmentation faults, which would cause the program to fail or **crash**.
+
+If you learn these operations at this [website][r-operations] or [video][r-operations-video], you can use **R** to do basic calculations in your day to day work.
+
+[r-operations]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Arithmetic.html
+[r-operations-video]: https://www.youtube.com/watch?list=PLqzoL9-eJTNBDdKgJgJzaQcY6OXmsXAHU&v=UYclmg1_KLk
+
+Suppose you want to use a letter or word (let's call it a **variable**) to represent a number or other type of object (such as a string of letters, a function, etc.), so that you can easily reference the object. You can **assign** the object to the letter or word using the ```<-``` operation.
+
+You will be doing a whole lot of this, but we start with a basic introduction so that we can further explore the use of R as a calculator. Start by creating a variable named ```myvar```, and assign a value:
+
+```
+> myvar <- 25
+```
+
+Now, when you type ```myvar``` into the console, it gives you output equal to the value you assigned to it:
+
+```
+> myvar
+[1] 25
+```
+
+Suppose you wanted to ask what the value of $25x25$ is, you could type:
+
+```
+> myvar * myvar
+[1] 625
+> myvar^2
+[1] 625
+```
+
+You can then assign that operation to a new variable, ```myvar1```:
+
+```
+> myvar1 <- myvar^2
+> myvar1
+[1] 625
+```
+
 
 ---
 
