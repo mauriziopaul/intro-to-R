@@ -15,10 +15,10 @@ The WordPress website for the HtLtC summer series can be found here:
 
 - [ ] Please bring a laptop to class if possible.
 
-- [ ] Please join our [Slack][slack] group. You can use Slack on the web, or install an app on for your computer / smartphone. We will be sending class registrants invitations to the LearnR Slack group via e-mail. We will use Slack to post homework assignments, and to keep in touch and communicate with each other between small group lectures.
+- [ ] Please join our Slack group. We will be sending class registrants invitations to the LearnR Slack group via e-mail. We will use Slack to post homework assignments, and to keep in touch and communicate with each other between small group lectures. You can use [Slack][slack] on the web, or install an app on for your computer / smartphone.
 
 [slack]: https://www.slack.com
-[firstlecture]: (jekyll/2016/06/13/Lesson-01-intro)
+[firstlecture]: http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/13/Lesson-01-intro
 
 ### Small Group Lecture Topics
 1. Getting Started
