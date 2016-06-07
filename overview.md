@@ -10,11 +10,21 @@ This is the Small Group website for Katrina and Paul's lessons for learning to c
 The WordPress website for the HtLtC summer series can be found here:
 [howtolearntocode](http://howtolearntocode.web.unc.edu).
 
-### Suggested Topics
-1. Introduction
+### Before the First Class
+- [ ] Please follow the instructions [here][firstlecture] to install R and RStudio on your computer. 
+
+- [ ] Please bring a laptop to class if possible.
+
+- [ ] Please join our [Slack][slack] group. You can use Slack on the web, or install an app on for your computer / smartphone. We will be sending class registrants invitations to the LearnR Slack group via e-mail. We will use Slack to post homework assignments, and to keep in touch and communicate with each other between small group lectures.
+
+[slack]: https://www.slack.com
+[firstlecture]: (jekyll/2016/06/13/Lesson-01-intro)
+
+### Small Group Lecture Topics
+1. Getting Started
 2. Basic Operations
 3. Basic Plotting
-4. Using Apply
+4. Loops, Logic, and Apply
 5. Data Modeling
 6. Data Wrangling
 7. Advanced Plotting

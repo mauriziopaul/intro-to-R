@@ -41,15 +41,18 @@ b. Win: RStudio 0.99.902 - Windows Vista/7/8/10, or latest/appropriate version
 3. RStudio is now available in your Applications or Program Files folder.
 
 
----
-
-## Open RStudio
-
-1. Run RStudio from your Applications/Programs folder.
 
 ---
 
-## Evaluating R
+## Exploring R
+
+### What is R?
+
+R was developed by Robert Gentleman and Ross Ihaka from the Statistics Department in 1990’s, in New Zealand, for use in statistical computing.
+
+### Evaluating R
+
+R was developed to allow users to engage with it **interactively** as well as for users to **develop programs** and packages that can be added to the open source repositories, for anyone to use.  
 
 | **Advantages**       					| **Disadvantages** |
 | Open-Source					   	| Packages are of varying quality |
@@ -60,9 +63,11 @@ b. Win: RStudio 0.99.902 - Windows Vista/7/8/10, or latest/appropriate version
 | There are many ways to do the same thing | There are many ways to do the same thing |
 
 
+Let's run have everyone start RStudio from their Applications/Programs folder.
+
 ---
 
-## R is a Scientific Calculator
+### R is a Scientific Calculator
 
 You can follow along by starting in the lower left-hand corner of your RStudio session. This is the **console**, where you can code _interactively_.
   
@@ -85,9 +90,9 @@ Try something else:
 [1] 15
 ```
 
-Many other basic operations are available:[^1]
+Many other basic operations are available:[^log]
 
-[^1]: Note that the ```log()``` function defaults to _natural_ log, a.k.a. "ln", or ```log(..., base=exp(1))```. You might mistake it for ```log10```, or ```log(..., base=10)```.
+[^log]: Note that the ```log()``` function defaults to _natural_ log, a.k.a. "ln", or ```log(..., base=exp(1))```. You might mistake it for ```log10```, or ```log(..., base=10)```.
 
 
 ```
@@ -104,7 +109,9 @@ Many other basic operations are available:[^1]
 [1] 0
 ```
 
-That last expression uses some operator with parentheses, which indicates that you are using a **function**. We will discuss functions and what you put inside the parentheses later. Parentheses can also be used to group operations (you all remember **PEMDAS**, right?).
+That last expression uses some operator with parentheses, which indicates that you are using a **function**. [^function]
+
+[^function]: We will discuss functions and what you put inside the parentheses later. Parentheses can also be used to group operations.
 
 Sometimes the instruction you give does not make sense to ```R```.
 
@@ -115,18 +122,20 @@ Warning message:
 In log(-1) : NaNs produced
 ```
 
-See that we have received output, ```[1] NaN```, as well a warning message describing the warning. When something goes wrong, **R** will give you **warnings**, and **errors**, which are more ``severe.'' [^2] We will go over **troubleshooting** these warnings and errors later.
+See that we have received output, ```[1] NaN```, as well a warning message below it describing the situation. When something goes wrong, **R** will give you **warnings**, and **errors** which are more ``severe.'' [^segfault] We will go over **troubleshooting** these warnings and errors later.
 
-[^2]: And hopefully not too many **segfaults** -- segmentation faults, which would cause the program to fail or **crash**.
+[^segfault]: And hopefully not too many **segfaults** -- segmentation faults, which would cause the program to fail or **crash**.
 
-If you learn these operations at this [website][r-operations] or [video][r-operations-video], you can use **R** to do basic calculations in your day to day work.
+If you practice some of these operations, at this [website][r-operations] or [video][r-operations-video], you can learn to use **R** to do basic calculations in your day to day work.
 
 [r-operations]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Arithmetic.html
 [r-operations-video]: https://www.youtube.com/watch?list=PLqzoL9-eJTNBDdKgJgJzaQcY6OXmsXAHU&v=UYclmg1_KLk
 
-Suppose you want to use a letter or word (let's call it a **variable**) to represent a number or other type of object (such as a string of letters, a function, etc.), so that you can easily reference the object. You can **assign** the object to the letter or word using the ```<-``` operation.
+Suppose you want to use a letter or word (let's call it a **variable**) to represent a number or other type of **object** (such as a string of letters, a function, etc.), so that you can easily reference the object. You can **assign** the object to the letter or word using the ```<-``` operation.
 
-You will be doing a whole lot of this, but we start with a basic introduction so that we can further explore the use of R as a calculator. Start by creating a variable named ```myvar```, and assign a value:
+It works like this: **variable <- object**
+
+We will be doing a whole lot of this, but we introduce it quickly here. Start by creating a variable named ```myvar```, and assign a value:
 
 ```
 > myvar <- 25
@@ -159,21 +168,28 @@ You can then assign that operation to a new variable, ```myvar1```:
 
 ---
 
-## R is a Tool for Statistical Analysis
+### R is a Tool for Statistical Analysis
 
 ---
 
-## R is a Tool for High-Quality Plots 
+### R is a Tool for High-Quality Plots 
 
 ---
 
-## R is a Tool for Reproducible Research
+### R is a Tool for Reproducible Research
+
+---
+
+## Review
+
 
 ---
 
 ## Sources
 
-Some of this lesson is based on the online notes for [this course][r-intro-kbroman].
+Some of this lesson is based on the online notes for [this course][r-intro-kbroman], and from [this book][r-for-data-sci].
+
+---
 
 ## Reference Texts for Learning R
 - [R for Data Science][r-for-data-sci], by Roger Peng
