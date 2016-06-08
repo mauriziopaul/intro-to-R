@@ -11,11 +11,11 @@ The WordPress website for the HtLtC summer series can be found here:
 [howtolearntocode](http://howtolearntocode.web.unc.edu).
 
 ### Before the First Class
-- [ ] Please follow the instructions [here][firstlecture] to install R and RStudio on your computer. 
+* Please follow the instructions [here][firstlecture] to install R and RStudio on your computer. 
 
-- [ ] Please bring a laptop to class if possible.
+* Please bring a laptop to class, if possible.
 
-- [ ] Please join our Slack group. We will be sending class registrants invitations to the LearnR Slack group via e-mail. We will use Slack to post homework assignments, and to keep in touch and communicate with each other between small group lectures. You can use [Slack][slack] on the web, or install an app on for your computer / smartphone.
+* Please join our Slack group. We will be sending class registrants invitations to the LearnR Slack group via e-mail. We will use Slack to post homework assignments, and to keep in touch and communicate with each other between small group lectures. You can use [Slack][slack] on the web, or install an app on for your computer / smartphone.
 
 [slack]: https://www.slack.com
 [firstlecture]: http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/13/Lesson-01-intro
