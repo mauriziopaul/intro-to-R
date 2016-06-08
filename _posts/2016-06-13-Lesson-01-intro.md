@@ -19,7 +19,7 @@ We will be using RStudio for all of the R lessons.  You should first install ```
 
 ### Windows
 
-1. Download R-3.2.5-win.exe, or the latest version, from this site: [R for Windows][r-for-windows].
+1. Download R-3.3.0-win.exe, or the latest version, from this site: [R for Windows][r-for-windows].
 2. Run the downloaded executable (double click and follow instructions).
 3. R is now available in your Program Files folder.
 
@@ -35,8 +35,8 @@ We will be using RStudio for all of the R lessons.  You should first install ```
 ## Install RStudio
 
 1. Download RStudio Desktop Installer from this site: [RStudio link][r-studio].
-a. Mac: RStudio 0.99.902 - Mac OS X 10.6+ (64-bit), or latest/appropriate version
-b. Win: RStudio 0.99.902 - Windows Vista/7/8/10, or latest/appropriate version
+	* Mac: RStudio 0.99.902 - Mac OS X 10.6+ (64-bit), or latest/appropriate version
+	* Win: RStudio 0.99.902 - Windows Vista/7/8/10, or latest/appropriate version
 2. Run the downloaded package (double click and follow instructions).
 3. RStudio is now available in your Applications or Program Files folder.
 
