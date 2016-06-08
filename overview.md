@@ -4,8 +4,8 @@ title: Overview
 permalink: /overview/
 ---
 
-### How To Learn to Code
-This is the Small Group website for Katrina and Paul's lessons for learning to code in R.
+### How To Learn to Code (2016)
+This is the Introduction to R (Small Group Coding) website for Katrina and Paul's lessons. The syllabus is available here: [Introduction to R Syllabus](http://mauriziopaul.github.io/intro-to-R/teachingResources/Syllabus_IntroToR.pdf).
 
 The WordPress website for the HtLtC summer series can be found here:
 [howtolearntocode](http://howtolearntocode.web.unc.edu).
