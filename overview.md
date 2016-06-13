@@ -21,7 +21,7 @@ The WordPress website for the HtLtC summer series can be found here:
 [installation]: http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/08/Installing-R-RStudio
 
 ### Small Group Lecture Topics (8 sessions)
-1. Getting Started
+1. Getting Started: [Lesson01.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson01.pdf)
 2. Basic Operations
 3. Basic Plotting
 4. Loops, Logic, and Apply
