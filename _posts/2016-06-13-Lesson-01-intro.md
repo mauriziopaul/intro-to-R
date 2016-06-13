@@ -399,13 +399,15 @@ Look I will try to update this section after class to include a summary of the t
 
 We hope that you feel comfortable enough to try interactive coding with R on your own. Prior to the next class, please try to learn about data types in R at the following site, and we will start importing and exporting data in class.
 
-Before next week:
+Before next week, your homework is to:
 
 1. Complete these sessions [Codeschool: Try-R](http://tryr.codeschool.com/), Lessons 1-6. You have to set up an account, but the initial lessons are free.
 
-2. Read and reproduce as much as you can get through section 5 of [R Programming or Data Science][r-for-data-sci] (ends on p. 31 of the pdf), which also covers data types.
+Other optional resources for your learning:
 
-3. Read this blog (for fun!): 
+1. Read and reproduce as much as you can get through section 5 of [R Programming or Data Science][r-for-data-sci] (pages 21-31 of the pdf), which also covers data types.
+
+2. Read this blog (for fun!): [R The Master Troll](http://www.talyarkoni.org/blog/2012/06/08/r-the-master-troll-of-statistical-languages/)
 
 
 ---
