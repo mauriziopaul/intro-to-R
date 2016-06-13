@@ -298,11 +298,15 @@ Finally, there are times you will want to put words in your code that you would 
 
 ### R is a Tool for Statistical Analysis
 
+This is a good time to introduce an R cheat sheet, [here](http://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf). The second page summarizes some statistical distributions.
+
 More on this in Lecture 5.
 
 ---
 
 ### R is a Tool for High-Quality Plots 
+
+Let's try to plot some of these distributions.
 
 More on this in Lecture 3.
 
@@ -316,40 +320,52 @@ You can think of **commenting** your code as similar to keeping a good laborator
 
 ## Getting Around in R
 
+We will go over some of these in class, interactively:
+
 ```
 ls()
+rm()
+
 search()
 environment()
-rm()
 help()
-q() # ctrl + D
-```
 
-### Getting Help
-	1. Stackoverflow
-	2. Google
-
-## Data Types
-
-### Vectors
-
-### Matrices
-
-### Arrays
-
-### Lists
-
-### Data Frames
-
-subset()
-c()
 list.files()
 getwd()
 setwd()
 
-tab complete
-shortcuts
-vector addition
+subset()
+c()
+
+q() # ctrl + D on the command line
+```
+
+## Getting Help for Coding in R
+
+	1. Google
+	2. Stackoverflow
+	3. Reference manuals
+
+### Reference Texts for Learning R
+- [R for Data Science][r-for-data-sci], by Roger Peng
+- [simpleR][simpleR], by John Verzani
+- [A Beginner's Guide to R][beginner-R], by Alain F. Zuur, Elena N. Ieno, and Erik Meesters
+- [The Art of R Programming][art-of-R], by Norman Matloff
+
+
+## Data Types
+
+1. Vectors
+2. Matrices
+3. Arrays
+4. Lists
+5. Data Frames
+
+A good, existing, resource for learning data types in R is available at: [Codeschool: Try-R](http://tryr.codeschool.com/), Lessons 1-6. You have to set up an account, but the initial lessons are free. There is also this introductory video by Roger Peng at Hopkins: [data types video](https://www.youtube.com/watch?v=vGY5i_J2c-c&feature=youtu.be).
+
+Other topics:
+* tab completion
+* vector addition
 
 ## Packages
 
@@ -362,12 +378,11 @@ To find packages for R, there are several places you can look:
 Sometimes, websites, books, or journal articles will have details about an R package you may be interested in using. One good, peer-reviewed, open access resource is [_The R Journal_](https://journal.r-project.org). 
 
 
-
-
-
 ---
 
 ## Review
+
+Look I will try to update this section after class to include a summary of the topics discussed and to cover the questions raised during class.
 
 
 > One of the things I really like about programming languages is that it's the perfect excuse to stick your nose into any field. So if you're interested in high energy physics and the structure of the universe, being a programmer is one of the best ways to get in there. It's probably easier than becoming a theoretical physicist.
@@ -377,6 +392,22 @@ Sometimes, websites, books, or journal articles will have details about an R pac
 
 [^bjarne-quote]: https://en.wikiquote.org/wiki/Bjarne_Stroustrup
 
+
+---
+
+## Homework
+
+We hope that you feel comfortable enough to try interactive coding with R on your own. Prior to the next class, please try to learn about data types in R at the following site, and we will start importing and exporting data in class.
+
+Before next week:
+
+1. Complete these sessions [Codeschool: Try-R](http://tryr.codeschool.com/), Lessons 1-6. You have to set up an account, but the initial lessons are free.
+
+2. Read and reproduce as much as you can get through section 5 of [R Programming or Data Science][r-for-data-sci] (ends on p. 31 of the pdf), which also covers data types.
+
+3. Read this blog (for fun!): 
+
+
 ---
 
 ## Sources
@@ -384,12 +415,6 @@ Sometimes, websites, books, or journal articles will have details about an R pac
 Some of this lesson is based on the online notes for [this course][r-intro-kbroman], and from [this book][r-for-data-sci].
 
 ---
-
-## Reference Texts for Learning R
-- [R for Data Science][r-for-data-sci], by Roger Peng
-- [simpleR][simpleR], by John Verzani
-- [A Beginner's Guide to R][beginner-R], by Alain F. Zuur, Elena N. Ieno, and Erik Meesters
-- [The Art of R Programming][art-of-R], by Norman Matloff
 
 
 [^standards]: These differ based on your research field: SASS, SPSS, Matlab, Python, GraphPad Prism, etc.
