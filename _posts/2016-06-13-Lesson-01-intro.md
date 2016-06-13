@@ -328,7 +328,6 @@ q() # ctrl + D
 ### Getting Help
 	1. Stackoverflow
 	2. Google
-	3. 
 
 ## Data Types
 
