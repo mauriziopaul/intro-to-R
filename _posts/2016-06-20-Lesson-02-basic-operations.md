@@ -99,8 +99,8 @@ Matrices have their uses but data frames can contain more information.
 Lists are, well, lists of things. You can mix different data types in a list--you can have numeric values, strings, even data frames stored in a single list. They are versatile dumping grounds for information.
 
 ```
-> l <- list(TRUE, 1, c(2, 3), 'four')
-> l
+> list.example <- list(TRUE, 1, c(2, 3), 'four')
+> list.example
 [[1]]
 [1] TRUE
 
@@ -117,7 +117,7 @@ Lists are, well, lists of things. You can mix different data types in a list--yo
 You can access elements of a list with double brackets, rather than single brackets such as for vectors and matrices.
 
 ```
-> l[[3]]
+> list.example[[3]]
 [1] 2 3
 ```
 
@@ -165,18 +165,139 @@ The best way is with the `$` operator: `iris$Species`.
 
 Other ways to perform the same operation are `iris[['Species']]`, `iris[, 'Species']`, and `iris[, 5]`.
 
+### Examining data frames
+
+We already learned the `head` function. Its corresponding function, `tail`, gives the last six rows of a data frame.
+
+Functions `dim` (dimensions), `nrow` (number of rows), and `ncol` (number of columns) report the size of the data frame or matrix.
+
+```
+> dim(iris)
+[1] 150   5
+> nrow(iris)
+[1] 150
+> ncol(iris)
+[1] 5
+```
+
+You can also examine the column names through the `names` and `colnames` function, and row names through `rownames`.
+
+### What can we do with data stored in a data frame?
+
+Storing data in a data frame allows us to efficiently examine it, filter it, and run statistical analyses. For example, we can make some basic plots with this data:
+
+```
+> hist(iris$Petal.Length)
+> boxplot(iris$Petal.Length ~ iris$Species)
+```
+
+We will learn more about plotting next week.
+
 ---
 
 # Reading data
 
+You will probably want to load your own data of various types into R. Storing data in plain text files is a great way to share data, because then other users can use your data with any software.
+
 ## Text file formats
 
-## Working directories
+You will likely encounter three different formats of plain-text data:
+
+* Whitespace-delimited values
+* Tab-separated values (tsv)
+* Comma-separated values (csv)
+
+All these files contain rows of observations with the same number of columns in each row. They only differ in the column delimiter.
+
+These formats are not strict, however. You may find variations such as: whether or not a file includes headers (column names), whether it includes row names, what indicates a missing value, etc.
 
 ## read.table
 
+The R function `read.table` reads a plain-text file into a data frame.
+
 ### The ? operator and reading help files
+
+You can load the help for a function by using the `?` operator, e.g. `?read.table`. Try loading the help for read.table.
+
+Reading the help manuals in R is a skill unto itself. They have all the information you need, but not necessarily clearly written.
+
+First, there is a description of what the function does:
+
+>Reads a file in table format and creates a data frame from it, with cases corresponding to lines and variables to fields in the file.
+
+Then, there is an example function:
+
+```
+read.table(file, header = FALSE, sep = "", quote = "\"'",
+           dec = ".", numerals = c("allow.loss", "warn.loss", "no.loss"),
+           row.names, col.names, as.is = !stringsAsFactors,
+           na.strings = "NA", colClasses = NA, nrows = -1,
+           skip = 0, check.names = TRUE, fill = !blank.lines.skip,
+           strip.white = FALSE, blank.lines.skip = TRUE,
+           comment.char = "#",
+           allowEscapes = FALSE, flush = FALSE,
+           stringsAsFactors = default.stringsAsFactors(),
+           fileEncoding = "", encoding = "unknown", text, skipNul = FALSE)
+```
+
+Each of the elements of the function call is an **argument**. Arguments within a function call are assigned with an equals sign. (They can also be assigned without the equals by their order.) The values of each argument listed here are the defaults.
+
+This function has a ton of arguments! Fortunately, they are described later in the help manual. Some examples:
+
+>`header`: a logical value indicating whether the file contains the names of the variables as its first line. If missing, the value is determined from the file format: header is set to TRUE if and only if the first row contains one fewer field than the number of columns.
+>
+>`sep`: the field separator character. Values on each line of the file are separated by this character. If sep = "" (the default for read.table) the separator is ‘white space’, that is one or more spaces, tabs, newlines or carriage returns.
+>
+>`na.strings`: a character vector of strings which are to be interpreted as NA values. Blank fields are also considered to be missing values in logical, integer, numeric and complex fields.
+>
+>`stringsAsFactors`: logical: should character vectors be converted to factors? Note that this is overridden by `as.is` and `colClasses`, both of which allow finer control.
+
+We also discover from the help manual the functions `read.csv` and `read.delim`, which read CSV files and TSV files, respectively. They are the same function as `read.table`, but with different default arguments.
+
+### Working directory
+
+R sessions exist in a working directory. You can find out which directory you're in with `getwd()`, and change your working directory with `setwd('DirectoryName')`. Within RStudio, you can also change your working directory with the menus: Session -> Set Working Directory -> Choose Directory.
+
+### Can you read AirQuality.csv into your environment?
+
+```
+> air.qual <- read.csv('AirQuality.csv')
+> str(air.qual)
+'data.frame':	153 obs. of  6 variables:
+ $ Ozone  : Factor w/ 68 levels "-","1","10","108",..: 36 31 9 16 1 24 21 17 59 1 ...
+ $ Solar.R: Factor w/ 118 levels "-","101","112",..: 29 5 17 88 1 1 85 118 28 33 ...
+ $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+ $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
+ $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
+ $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...
+> head(air.qual)
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5     -       - 14.3   56     5   5
+6    28       - 14.9   66     5   6
+> hist(air.qual$Ozone)
+Error in hist.default(air.qual$Ozone) : 'x' must be numeric
+```
+
+Whoops! Because a hyphen was used as a missing value, and R wasn't expecting that, the `Ozone` and `Solar.R` columns were read in as factors, when they are numeric information and should be read in as numbers.
+
+Here, it's a good thing we've learned about the `read.table` (and `read.csv`) options. How can we handle this situation to read in the table correctly?
+
+---
+
+# Missing data
+
+---
+
+# Scripting
 
 ---
 
 # Debugging
+
+---
+
+# Nomenclature
