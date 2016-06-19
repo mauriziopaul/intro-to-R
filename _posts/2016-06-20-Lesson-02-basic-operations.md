@@ -6,6 +6,13 @@ categories: jekyll
 
 In this lesson we will focus on reading and handling data, and what you need to know in order to do so.
 
+In this lesson, we will learn about:
+
+* Data types
+* Reading and writing data frames
+* How to read help manuals for functions
+* How to start writing scripts
+
 # Data types
 
 1. Vectors
@@ -193,6 +200,18 @@ Storing data in a data frame allows us to efficiently examine it, filter it, and
 
 We will learn more about plotting next week.
 
+We can also filter data with the `subset` function (as well as logical vectors, which we will cover in Week 4). The subset allows us to select only certain rows from a data frame. For example, we can only select flowers that have a petal width greater than 2:
+
+```
+> subset(iris, Petal.Width > 2)
+    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+101          6.3         3.3          6.0         2.5 virginica
+103          7.1         3.0          5.9         2.1 virginica
+105          6.5         3.0          5.8         2.2 virginica
+...
+149          6.2         3.4          5.4         2.3 virginica
+```
+
 ---
 
 # Reading data
@@ -254,6 +273,8 @@ This function has a ton of arguments! Fortunately, they are described later in t
 
 We also discover from the help manual the functions `read.csv` and `read.delim`, which read CSV files and TSV files, respectively. They are the same function as `read.table`, but with different default arguments.
 
+And, at the bottom of the help page, there are examples of how the function can be used.
+
 ### Working directory
 
 R sessions exist in a working directory. You can find out which directory you're in with `getwd()`, and change your working directory with `setwd('DirectoryName')`. Within RStudio, you can also change your working directory with the menus: Session -> Set Working Directory -> Choose Directory.
@@ -286,18 +307,101 @@ Whoops! Because a hyphen was used as a missing value, and R wasn't expecting tha
 
 Here, it's a good thing we've learned about the `read.table` (and `read.csv`) options. How can we handle this situation to read in the table correctly?
 
----
+### Missing data
 
-# Missing data
+Most data sets have missing data points, and R has functions to handle them.
+
+`is.na` returns a logical vector--elements that are `NA` return `TRUE`, and non-missing values return `FALSE`--e.g., `is.na(air.qual$Ozone)`.
+
+Based on what we learned with `subset`, how can we select only only rows from `air.qual` where data is missing for `Solar.R`?
+
+Many functions return a missing value when given a data set with some missing data (e.g. `mean(air.qual$Ozone)`). If you think that removing missing data is scientifically justified, you can use the `na.rm` argument that many functions have.
+
+```
+> ?mean
+> mean(air.qual$Ozone)
+[1] NA
+> mean(air.qual$Ozone, na.rm=TRUE)
+[1] 42.12931
+
+```
 
 ---
 
 # Scripting
 
+We have learned a lot about what we can do interactively in R--but for reproducibility, we can save a series of commands in a *script*. This script can be saved, edited, and re-run as many times as you want.
+
+To create a new script in RStudio, you can go to: File -> New File -> R Script. Type any commands you like. Finally, you can save the script by going to File -> Save.
+
+You can run the whole script by clicking the "Source" button in the console. Alternatively, you can run specific lines by highlighting them and pressing Cmd+Enter (Mac) or Ctrl-Enter (Windows).
+
+My typical workflow for analyzing data involves going back and forth between the console and the source code. I use the console to make sure I'm executing the steps correctly, and keeping the correct code in my source script.
+
+Scripting also lets you annotate your process, so that your collaborators (or Future You) understands what you were trying to do at each step of your code. You can add comments to your code with the pound sign:
+
+```
+# This is a comment
+head(air.qual)  # comment starts here
+```
+
+Everything after the pound sign (or "hashtag") is a comment, but anything before it will be executed.
+
 ---
 
-# Debugging
+# Dealing with errors
+
+You _will_ have errors in your code, all the time. These can fall under certain categories:
+
+* Things the computer recognizes as errors
+
+```
+> head(airqual)
+Error in head(airqual) : object 'airqual' not found
+> haed(air.qual)
+Error: could not find function "haed"
+```
+
+* Things the computer thinks might be an error--so it gives a warning
+* Things that the computer doesn't recognize as an error, but doesn't work as intended
+
+```
+hist(air.qual$Ozone)
+abline(v = mean(air.qual$Ozone))
+```
+
+When you have an error in your code, follow these instructions:
+
+1. Don’t panic.
+2. Guess why it is happening.
+3. Check if your guess is correct.
+4. Repeat steps 1 through 3 as necessary.[^errorsteps]
+
+[^errorsteps]: Source: [http://www.burns-stat.com/documents/tutorials/impatient-r/more-r-errors-and-such/](http://www.burns-stat.com/documents/tutorials/impatient-r/more-r-errors-and-such/)
+
+Google is your friend here! You can search for the error message, or what you're trying to do, and include "in R" or "Rstats" in your search terms.[^Rsearch]
+
+[^Rsearch]: One of the minor downsides of R is its name being a single character, which makes searches slightly more difficult because irrelevant information is returned.
+
+You can also restrict your search to [StackOverflow](http://stackoverflow.com/), or use the [Rseek search engine](http://rseek.org/), which only searches on websites related to R.
+
+Most of coding in R is (a) reading the R help and (b) searching for R help.
 
 ---
 
 # Nomenclature
+
+Variables in R are typically lowercase, and can include periods: e.g. `example.variable`. (Most languages do not use periods in variable names, but R is an exception.) Functions can include periods but are also sometimes in "camel case": `example.function()` or `exampleFunction()`.
+
+When copying + pasting a code example or output, using a fixed-width font, such as Courier New, indicates that you are displaying code or plain-text output (like you see in these lesson plans).
+
+---
+
+# Homework
+
+---
+
+# Resources
+
+* [Google R style guide](https://google.github.io/styleguide/Rguide.xml)
+* [R for cats](http://rforcats.net/)
