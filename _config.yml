@@ -19,6 +19,7 @@ baseurl : "/intro-to-R" # the subpath
 url : "http://mauriziopaul.github.io" # the base hostname & protocol
 twitter_username : TweetNTD
 github_username :  mauriziopaul
+github_username :  kutchko
 
 # Build settings
 markdown : kramdown
