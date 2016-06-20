@@ -4,6 +4,13 @@ title:  "Lesson 02 - Basic Operations"
 categories: jekyll 
 ---
 
+---
+
+* TOC
+{:toc}
+
+---
+
 In this lesson we will focus on reading and handling data, and what you need to know in order to do so.
 
 In this lesson, we will learn about:
@@ -13,18 +20,18 @@ In this lesson, we will learn about:
 * How to read help manuals for functions
 * How to start writing scripts
 
-# Data types
+## Data types
 
 1. Vectors
 2. Matrices
 3. Lists
 4. Data frames
 
-## Vectors
+### Vectors
 
 A vector is a one-dimensional list of values. The values in this list have a **type**: either **numeric**, **character**, **factor**, or **logical**. All values in a vector will have the same type (whether you want them to or not).
 
-### Numeric vectors
+#### Numeric vectors
 
 All values in a vector are a number, or missing (`NA` or `NaN`).
 
@@ -35,7 +42,7 @@ All values in a vector are a number, or missing (`NA` or `NaN`).
 [1] 1.0 2.0  NA 4.5
 ```
 
-### Character vectors
+#### Character vectors
 
 All values in a vector are a string (or missing).
 
@@ -48,7 +55,7 @@ All values in a vector are a string (or missing).
 
 (Strings can look like numbers to the human eye. R doesn't care that the 200 *could* be a number, because it's with a bunch of other strings. You can coerce strings to become numbers with the function `as.numeric`, e.g. `as.numeric("200")`.)
 
-### Factors
+#### Factors
 
 Factors look like strings but have a specific function: to store different levels of a variable, such as experimental conditions.
 
@@ -58,7 +65,7 @@ Factors look like strings but have a specific function: to store different level
 Levels: F M
 ```
 
-### Logical vectors
+#### Logical vectors
 
 Vectors can be made up of logicals: `TRUE` and `FALSE` values.
 
@@ -69,7 +76,7 @@ Vectors can be made up of logicals: `TRUE` and `FALSE` values.
 
 `TRUE` is not the same as `"TRUE"` or `"True"`. Special values such as `TRUE`, `FALSE`, `NA`, `NaN`, and `NULL` are case-sensitive and not placed in quotes.
 
-## Matrices
+### Matrices
 
 Matrices are two-dimensional vectors. Like vectors, they can only contain one type of data.
 
@@ -101,7 +108,7 @@ You can extract single values, rows, columns, or matrices from a matrix.
 
 Matrices have their uses but data frames can contain more information.
 
-## Lists
+### Lists
 
 Lists are, well, lists of things. You can mix different data types in a list--you can have numeric values, strings, even data frames stored in a single list. They are versatile dumping grounds for information.
 
@@ -128,7 +135,7 @@ You can access elements of a list with double brackets, rather than single brack
 [1] 2 3
 ```
 
-## Data frames
+### Data frames
 
 Data frames store information!
 
@@ -172,7 +179,7 @@ The best way is with the `$` operator: `iris$Species`.
 
 Other ways to perform the same operation are `iris[['Species']]`, `iris[, 'Species']`, and `iris[, 5]`.
 
-### Examining data frames
+#### Examining data frames
 
 We already learned the `head` function. Its corresponding function, `tail`, gives the last six rows of a data frame.
 
@@ -189,7 +196,7 @@ Functions `dim` (dimensions), `nrow` (number of rows), and `ncol` (number of col
 
 You can also examine the column names through the `names` and `colnames` function, and row names through `rownames`.
 
-### What can we do with data stored in a data frame?
+#### What can we do with data stored in a data frame?
 
 Storing data in a data frame allows us to efficiently examine it, filter it, and run statistical analyses. For example, we can make some basic plots with this data:
 
@@ -214,11 +221,11 @@ We can also filter data with the `subset` function (as well as logical vectors, 
 
 ---
 
-# Reading data
+## Reading data
 
 You will probably want to load your own data of various types into R. Storing data in plain text files is a great way to share data, because then other users can use your data with any software.
 
-## Text file formats
+### Text file formats
 
 You will likely encounter three different formats of plain-text data:
 
@@ -230,11 +237,11 @@ All these files contain rows of observations with the same number of columns in 
 
 These formats are not strict, however. You may find variations such as: whether or not a file includes headers (column names), whether it includes row names, what indicates a missing value, etc.
 
-## read.table
+### read.table
 
 The R function `read.table` reads a plain-text file into a data frame.
 
-### The ? operator and reading help files
+#### The ? operator and reading help files
 
 You can load the help for a function by using the `?` operator, e.g. `?read.table`. Try loading the help for read.table.
 
@@ -275,11 +282,11 @@ We also discover from the help manual the functions `read.csv` and `read.delim`,
 
 And, at the bottom of the help page, there are examples of how the function can be used.
 
-### Working directory
+#### Working directory
 
 R sessions exist in a working directory. You can find out which directory you're in with `getwd()`, and change your working directory with `setwd('DirectoryName')`. Within RStudio, you can also change your working directory with the menus: Session -> Set Working Directory -> Choose Directory.
 
-### Reading a CSV file
+#### Reading a CSV file
 
 Can you read AirQuality.csv into your environment?
 
@@ -309,7 +316,7 @@ Whoops! Because a hyphen was used as a missing value, and R wasn't expecting tha
 
 Here, it's a good thing we've learned about the `read.table` (and `read.csv`) options. How can we handle this situation to read in the table correctly?
 
-### Missing data
+#### Missing data
 
 Most data sets have missing data points, and R has functions to handle them.
 
@@ -330,7 +337,7 @@ Many functions return a missing value when given a data set with some missing da
 
 ---
 
-# Scripting
+## Scripting
 
 We have learned a lot about what we can do interactively in R--but for reproducibility, we can save a series of commands in a _script_. This script can be saved, edited, and re-run as many times as you want.
 
@@ -351,7 +358,7 @@ Everything after the pound sign (or "hashtag") is a comment, but anything before
 
 ---
 
-# Dealing with errors
+## Dealing with errors
 
 You _will_ have errors in your code, all the time. These can fall under certain categories:
 
@@ -391,7 +398,7 @@ Most of coding in R is (a) reading the R help and (b) searching for R help.
 
 ---
 
-# Nomenclature
+## Nomenclature
 
 Variables in R are typically lowercase, and can include periods: e.g. `example.variable`. (Most languages do not use periods in variable names, but R is an exception.) Functions can include periods but are also sometimes in "camel case": `example.function()` or `exampleFunction()`.
 
@@ -399,14 +406,14 @@ When copying + pasting a code example or output, using a fixed-width font, such 
 
 ---
 
-# Homework
+## Homework
 
 * Find the mean and median of solar radiation levels from the air quality data set.
 * Save the `iris` data set into a text-delimited format (hint: `?write.table`). What does it look like when opened with a text editor? What does it look like when opened with a spreadsheet program like Excel?
 
 ---
 
-# Resources
+## Resources
 
 * [R for cats](http://rforcats.net/)
 * [Software Carpentry: R for reproducible scientific analysis](http://swcarpentry.github.io/r-novice-gapminder/)
