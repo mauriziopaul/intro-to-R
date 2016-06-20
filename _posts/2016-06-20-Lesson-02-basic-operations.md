@@ -402,7 +402,7 @@ When copying + pasting a code example or output, using a fixed-width font, such 
 # Homework
 
 * Find the mean and median of solar radiation levels from the air quality data set.
-* Save the `iris` data set into a text-delimited format (hint: `?write.table`. What does it look like when opened with a text editor? What does it look like when opened with a spreadsheet program like Excel?
+* Save the `iris` data set into a text-delimited format (hint: `?write.table`). What does it look like when opened with a text editor? What does it look like when opened with a spreadsheet program like Excel?
 
 ---
 
