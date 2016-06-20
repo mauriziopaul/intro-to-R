@@ -279,7 +279,9 @@ And, at the bottom of the help page, there are examples of how the function can 
 
 R sessions exist in a working directory. You can find out which directory you're in with `getwd()`, and change your working directory with `setwd('DirectoryName')`. Within RStudio, you can also change your working directory with the menus: Session -> Set Working Directory -> Choose Directory.
 
-### Can you read AirQuality.csv into your environment?
+### Reading a CSV file
+
+Can you read AirQuality.csv into your environment?
 
 ```
 > air.qual <- read.csv('AirQuality.csv')
@@ -330,7 +332,7 @@ Many functions return a missing value when given a data set with some missing da
 
 # Scripting
 
-We have learned a lot about what we can do interactively in R--but for reproducibility, we can save a series of commands in a *script*. This script can be saved, edited, and re-run as many times as you want.
+We have learned a lot about what we can do interactively in R--but for reproducibility, we can save a series of commands in a _script_. This script can be saved, edited, and re-run as many times as you want.
 
 To create a new script in RStudio, you can go to: File -> New File -> R Script. Type any commands you like. Finally, you can save the script by going to File -> Save.
 
@@ -381,7 +383,7 @@ When you have an error in your code, follow these instructions:
 
 Google is your friend here! You can search for the error message, or what you're trying to do, and include "in R" or "Rstats" in your search terms.[^Rsearch]
 
-[^Rsearch]: One of the minor downsides of R is its name being a single character, which makes searches slightly more difficult because irrelevant information is returned.
+[^Rsearch]: One of the minor downsides of R is its name being a single character, which makes searches slightly more difficult.
 
 You can also restrict your search to [StackOverflow](http://stackoverflow.com/), or use the [Rseek search engine](http://rseek.org/), which only searches on websites related to R.
 
@@ -399,9 +401,13 @@ When copying + pasting a code example or output, using a fixed-width font, such 
 
 # Homework
 
+* Find the mean and median of solar radiation levels from the air quality data set.
+* Save the `iris` data set into a text-delimited format (hint: `?write.table`. What does it look like when opened with a text editor? What does it look like when opened with a spreadsheet program like Excel?
+
 ---
 
 # Resources
 
-* [Google R style guide](https://google.github.io/styleguide/Rguide.xml)
 * [R for cats](http://rforcats.net/)
+* [Software Carpentry: R for reproducible scientific analysis](http://swcarpentry.github.io/r-novice-gapminder/)
+* [Google R style guide](https://google.github.io/styleguide/Rguide.xml)

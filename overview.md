@@ -23,7 +23,7 @@ The WordPress website for the HtLtC summer series can be found here:
 ### Small Group Lecture Topics (8 sessions)
 1. Getting Started: [Lesson01.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson01.pdf),
 	[html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/13/Lesson-01-intro).
-2. Basic Operations 
+2. Basic Operations: [Lesson02.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson02.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/20/Lesson-02-basic-operations).
 3. Basic Plotting
 4. Loops, Logic, and Apply
 5. Data Modeling
