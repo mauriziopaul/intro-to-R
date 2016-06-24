@@ -18,6 +18,7 @@ install.packages("RGraphics")
 4. Scatterplot, with legend
 5. Boxplot, Violinplot
 6. Barchart, with error bars
+7. Correlation matrix
 
 ## Plot and Graphical Functions
 * plot()
