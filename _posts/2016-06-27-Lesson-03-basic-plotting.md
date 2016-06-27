@@ -18,16 +18,16 @@ Staring with the basics: a plot is a **graphical representation** of data.  A pl
 
 Plots can be used for **data exploration**, as well as for formal presentation or publication.  In this lesson, I will mostly focus on using plots for data exploration.  The purpose of the plot, in this scenario, is to give you insight to be able to answer a question you have about data you have collected or curated. This type of plot should show the data with all its messiness and baggage, so to speak.
 
-When you are generating plots for publication, you will probably want a final product that is both honest and yet clearly sends a message about the data.
+When you are generating a plot for publication, however, you probably want a final product that is both honest and direct about the message it sends. This can take more time, and is beyond the scope of this lesson. R plots, with customization, make very good plots for publication, so it is worth taking time to learn both basic and advanced R plotting.
 
 There is not just one _right way_ to plot a data set.  Therefore, keep in mind that your choice of plot can **clarify** or **confuse** the intended viewer, and you might want to rethink how you choose to plot something after you plot it.
 
-To start things off, we need to have some _clean_ data available to plot.  Most likely, you will be interested in plotting data that you or your collaborators have generated. However, we will be plotting two convenient types of clean data in this lesson:
+To start things off, we need some _clean_ data available to plot.  Most likely, you will be interested in plotting data that you or your collaborators have generated. However, we will be plotting two other, convenient, types of clean data in this lesson:
 
 1. Open Data (available in R, or online).
 2. Random Data (generated in R).[^pseudorandom]
 
-[^pseudorandom]: This data is _pseudo_random, because, unlike truly 'random' data, the sequences generated from these functions are replicable, and exhibit properties that are close enough to random, while enabling reproducibility when given a **seed** value.
+[^pseudorandom]: This data is _pseudo_ random, because, unlike truly 'random' data, the sequences generated from these functions are replicable, and exhibit properties that are close enough to random, while enabling reproducibility when given a **seed** value.
 
 _Why random data?_ Plotting and understanding random distributions can help you to understand your own data (think null hypothesis vs. alternative hypotheses, or null distribution vs. true distribution). We will revisit this concept in more depth during our lesson on data modeling (Lesson 05).
 
@@ -56,7 +56,7 @@ There are many plot types available in base R. We will go through some of the fo
 > names(data)
 ```
 
-The description of this data set is available here: 
+The description of this data set is available here: [OpenFlights Airport Database](http://openflights.org/data.html)
 
 Before we plot the data, we can ask some basic questions about the data. See if you can understand and implement these types of queries.
 
@@ -99,7 +99,7 @@ Let's try the same thing, but this time look at longitude.
 > hist(dat$longitude, breaks=20)
 ```
 
-We can try to get a finer-graned plot by increasing the number of breaks.
+We can make a finer-graned plot by increasing the number of breaks.
 
 ```
 > hist(dat$longitude, breaks=100)
@@ -113,9 +113,9 @@ We can try to get a finer-graned plot by increasing the number of breaks.
 
 ### Density Plot
 
-Based on the plots from our histogram, it looks like we can include too few breaks, or too many breaks. One way to get a nicer image is to plot something known as a **density plot**. This shows something like a smoothed distribution of the data histogram.[^kernel]
+Based on the plots from our histogram, it looks like we can include too few breaks, or too many breaks. One way to get a clear image that conveys a similar message is to plot something known as a **density plot**. This shows a smoothed distribution of the data histogram.[^kernel]
 
-[^kernel]: The ```density()``` function uses a kernel density estimate. It involves a Fourier transform and smoothed linear approximations. It works well for many types of data, but you will sometimes want to compare it with a histogram.
+[^kernel]: The ```density()``` function uses a kernel density estimate. It involves a Fourier transform and smoothed linear approximations (not important to know for this lesson). It works well for many types of data, but you will sometimes want to compare it with a histogram. Sometimes you will want to set the bandwidth manually.
 
 ```
 > plot(density(dat$longitude))
@@ -124,7 +124,6 @@ Based on the plots from our histogram, it looks like we can include too few brea
 The x-axis is basically the same as in the histogram. Below the x-axis you see the count of the datapoints and the estimate for something called 'bandwidth', which we won't worry about right now (you can learn more about it [here](http://stats.stackexchange.com/questions/61374/what-does-bandwidth-mean)). 
 
 Instead of frequency (or counts) on the y-axis, which is what we saw in the histogram, we now have a "density."
-
 
 
 _How might you change the x and y axis labels? If you don't know how, what is a good way to find out?_
@@ -141,15 +140,11 @@ We don't have to worry about plotting the continents behind the points right now
 
 _What is R doing here?_
 
-It is basically taking one vector (a column from your data frame) and plotting it against another vector (another column from your data frame). The vectors have to be the same length (which is fine, because all data frames are rectangular). If there is a missing value in one of the columns, there will be no point corresponding to that row. So, there should be the same number of points in a scatterplot as there are full, paired x and y coordinates.
+It is basically taking one vector (a column from your data frame) and plotting it against another vector (another column from your data frame). The vectors have to be the same length (which is fine, because all data frames are rectangular), and in the same order (the 10th value of the x vector corresponds to the 10th value of the y vector). If there is a missing (```NA```) value in one of the columns, R will not plot a point for that 'row' of data. So, there should be the same number of points in a scatterplot as there are full, paired x and y coordinates.
 
-You can think of the ```~``` symbol as a regression of one variable on another, or simply as indicating "y vs. x", in that order. 
+You can think of the ```~``` symbol as indicating regression of one variable on another, or as indicating "y vs. x", in that order. _What happens if you instead use_ ```plot(latitude, longitude, data=data)```?
 
-_What happens if you instead use_ ```plot(latitude, longitude, data=data)```?
-
-We can change the format of the plot. Let's say that we want to shrink the circles and fill them in.
-
-We can use something called ```pch``` to set the _p_lot _ch_aracter or symbol (I am not sure if that what PCH means, but it is easy to remember).
+We can change the format of the plot. Perhaps we want to shrink the points and fill them in so that they are not empty circles. We can use something called ```pch``` to set the _p_ lot _ch_ aracter or symbol (I am not sure if that what PCH means, but it is easy to remember).
 
 ```
 > plot(latitude~longitude, data=dat, pch=16)
@@ -177,7 +172,7 @@ We can highlight a specific set of airports. Perhaps we want to see where the ai
 > points(latitude~longitude, data=dat.bad, pch=8, col="black", cex=2)
 ```
 
-You can only call ```points()``` after some sort of plot has been initiated with the ```plot()``` or ```plot.new()``` or some other sort of plot function.  This is not true for all plot functions-- some of them take a parameter called ```add```, where you can specify ```add=TRUE``` or ```add=FALSE```. We will get back to this later.
+You can only call ```points()``` after some sort of plot has been initiated with ```plot()```, ```plot.new()``` or some other plot function.  This is not true for all plot functions-- some of them take a parameter called ```add```, where you can specify ```add=TRUE``` or ```add=FALSE```.
 
 _What country is the "Bad Gastein" airport in? What about the airport in "Chinchilla"?_
 
@@ -195,11 +190,7 @@ Does anything look strange to you? Let's explore the data a bit:
 > dat.us[dat.us$longitude>-50,]
 ```
 
-Some of these airports are annotated as being in the "United States", but their ```timezone.olson``` value specifies Africa, Asia, or Europe!  
-
-Data exploration through plotting can reveal inconsistencies, errors, or outliers in the data.
-
-Good thing we didn't publish this plot! Perhaps OpenFlights will clarify/correct these rows in a future update.
+Some of these airports are annotated as being in the "United States", but their ```timezone.olson``` value specifies Africa, Asia, or Europe!  So, we see that data exploration through plotting can reveal inconsistencies, errors, or outliers in the data. Good thing we didn't publish this plot! Perhaps OpenFlights will clarify/correct these rows in a future update.
 
 ### Line graph
 
@@ -209,9 +200,7 @@ We can easily change the plot type in the plot function by specifying ```type="l
 > plot(latitude~longitude, data=dat, type="l")
 ```
 
-Previously, R was defaulting to ```type="p"```, for points. As you might have guessed, there is also a ```lines()``` function, and like ```points()```, it can only be called after a new plot has been made.
-
-In this case, a line graph is not a great way to represent our data, since the lines are connecting points that are in no particular order of interest.
+Previously when we used ```plot()```, R defaulted to ```type="p"```, for points. As you might have guessed, there is also a ```lines()``` function, and like ```points()```, it can only be called after a new plot has been made.  In this case, a line graph is not a great way to represent our data, since the lines are connecting points that are in no particular order of interest.  Longitudinal data (where the y-axis is a phenotype, and x-axis is time) is better viewed as a line graph. _Can you find a data set included with R that would be well suited for visualization using a line graph?_
 
 ### Boxplot
 
@@ -241,13 +230,13 @@ Now, let's just ask R to plot one variable vs. the other, using this constructio
 > plot(breaks~wool, data=warpbreaks)
 ```
 
-R is defaulting to ```type="b"```, for boxplot. We can also do the same for tension:
+R is defaulting to ```type="b"```, for boxplot. _What do the boxes and whiskers indicate?_ We can also do the same for tension:
 
 ```
 > plot(breaks~tension, data=warpbreaks)
 ```
 
-If we want to see how the **interaction** between wool and tension affect the number of breaks, we could try the following:
+If we want to see how the **interaction** between wool and tension affect the distribution of the number of breaks, we could try the following:
 
 ```
 > plot(breaks~wool*tension, data=warpbreaks)
@@ -258,6 +247,10 @@ However, R just plots the values against each of the categories in subsequent pl
 ```
 > boxplot(breaks~wool*tension, data=warpbreaks)
 ```
+
+There is an R package called ```beeswarm``` which plots _jittered_ points to illustrate the distribution of data in each category in a different way. 
+
+_Can you install beeswarm and use ```add=TRUE``` to overlay a boxplot and a beeswarm plot?_
 
 ### Barplot
 
@@ -287,22 +280,19 @@ That didn't work! What's wrong with our command? Well, we have a summary table o
 > barplot(table(dat$country))
 ```
 
-OK. That worked, but now we only have a few of the country labels.
-
-We can use something called ```las``` to specify the direction of the x and y axis labels. 
-
+OK. That worked, but now we only have a few of the country labels.  We can use something called ```las``` to specify the direction of the x and y axis labels. 
 
 ```
 > barplot(table(dat$country), las=2)
 ```
 
-That looks better. (Sidenote: What happens when you use ```las=0, las=1, las=2, las=3, las=4```?)
+That looks better. (_What happens when you use ```las=0, las=1```, ```las=2```, ```las=3```, ```las=4```?_)
 
-We still can't read the names. We can do two things. 
+We still can't read the names. We can do two things to fix this. 
 
-1. We can shrink the text using ```cex```, or in this case, ```ces.names```:
+1. We can shrink the text using ```cex```, or in this case, ```cex.names```:
 
-2. Or we can save the image as a really wide pdf, so that there is space to put the labels in.
+2. Or we can save the image as a really wide pdf, so that there is space to put the labels in without any overlap.
 
 ```
 > barplot(table(dat$country), las=2, cex=0.4)
@@ -311,15 +301,13 @@ We still can't read the names. We can do two things.
 > dev.off()
 ```
 
-The function ```pdf()``` opens a _dev_ice, and ```dev.off()``` shuts off the _dev_ice. The pdf won't be readable until you complete those two steps, sandwiching in between them the plots that you want to output to pdf. We can then open the pdf file in the location it is saved, which is your working directory. Do you know where that is?
+The function ```pdf()``` opens a pdf graphical _dev_ice, and ```dev.off()``` shuts off the _dev_ice. The pdf won't be readable until you complete those two steps, sandwiching the plots that you want to output to pdf in between the two device commands. We can then open the pdf file in the location it is saved, which is your working directory. _Do you know where that is?_
 
 ```
 > getwd()
 ```
 
-Did your labels fit? How might you change the argument values in the ```pdf()``` function to make sure they fit?
-
-The ```mar``` argument in the ```par()``` function specifies default margin values.
+_Did your labels fit? How might you change the argument values in the ```pdf()``` function to make sure they fit?_  The ```mar``` argument in the ```par()``` function specifies default margin values.
 
 ```
 > par("mar")
@@ -328,25 +316,23 @@ The ```mar``` argument in the ```par()``` function specifies default margin valu
 You can think of these as going clockwise from the bottom (bottom, left, top, right), specified in line height units. Since we want to increase the bottom margin, we can specify ```mar=c(9.1, 4.1, 4.1, 2.1)```
 
 ```
-pdf("barplot-of-airport-data.pdf", width=30, height=5)
-par(mar=c(15.1, 4.1, 4.1, 2.1))
-barplot(table(dat$country), las=2)
-dev.off()
+> pdf("barplot-of-airport-data.pdf", width=30, height=5)
+> par(mar=c(15.1, 4.1, 4.1, 2.1))
+> barplot(table(dat$country), las=2)
+> dev.off()
 ```
 
-This will overwrite the old pdf.
-
-More about ```par```, ```mar``` and ```las``` [here](http://rfunction.com/archives/1302).
+This will overwrite the old pdf. Read more about ```par```, ```mar``` and ```las``` [here](http://rfunction.com/archives/1302).
 
 ### Correlation matrix
 
 Let's generate some random data! We will eventually use this to plot a **correlation matrix**, since two independent random data sets should not, in general, be correlated.
 
 ```
-set.seed(1999)
-random.x <- rnorm(n=1000, mean=5, sd=1)
-random.y <- rnorm(n=1000, mean=5, sd=1)
-plot(random.y~random.x)
+> set.seed(1999)
+> random.x <- rnorm(n=1000, mean=5, sd=1)
+> random.y <- rnorm(n=1000, mean=5, sd=1)
+> plot(random.y~random.x)
 ```
 
 These points are apparently not correlated with eachother.
@@ -354,45 +340,43 @@ These points are apparently not correlated with eachother.
 What happens if we throw an extra set.seed in, before generating ```random.z```, using the same seed?
 
 ```
-set.seed(1999)
-random.z <- rnorm(n=1000, mean=5, sd=1)
-plot(random.z~random.x)
+> set.seed(1999)
+> random.z <- rnorm(n=1000, mean=5, sd=1)
+> plot(random.z~random.x)
 ```
 
-These points are perfectly correlated (they are not sampled independently -- they are sampled identically and dependent on the same seed). This means that ```random.z==random.x```. 
+These points are perfectly correlated (they are not sampled independently -- they are 'sampled' identically and both dependent on the same seed). This means that ```random.z==random.x```. 
 
 Let's bind these up into a data frame, and examine the correlation. In order to plot this, we will briefly foray into the world beyond base R plotting.
 
 ```
-random.dat <- cbind(random.x, random.y, random.z)
-install.packages(c("corrplot","corrgram"))
-library(corrplot); library(corrgram)
-cor(random.dat)
-corrplot(cor(random.dat)) # this looks like a domino
-corrgram(random.dat)
+> random.dat <- cbind(random.x, random.y, random.z)
+> install.packages(c("corrplot","corrgram"))
+> library(corrplot); library(corrgram)
+> cor(random.dat)
+> corrplot(cor(random.dat)) # this looks like a domino
+> corrgram(random.dat)
 ```
 
 This is one example of how different packages can do essentially the same thing. This data is not too interesting. Let's find something that has a more natural correlation structure.  I chose this data set (called ```swiss```) because it has multiple continuous variables:
 
 ```
-data(swiss)
-corrgram(swiss)
-corrplot(cor(swiss))
+> data(swiss)
+> corrgram(swiss)
+> corrplot(cor(swiss))
 ```
 
-Remember, this sort of display looks for correlations, not causation. Do you have a preference for corrgram or corrplot, and why?
-
-We might want to look a little closer at the actual data points. 
+Remember, this sort of display looks for correlations, not causation. _Do you have a preference for corrgram or corrplot, and why?_ We might want to look a little closer at the actual data points. 
 
 ### Pairs Plot
 
 Thankfully, in base R, there is a great function to look at all pairwise scatter plots in your data set.
 
 ```
-pairs(swiss)
+> pairs(swiss)
 ```
 
-What do you see? How does the information in this visualization differ from what you saw in the correlation plots?
+_What do you see? How does the information in this visualization differ from what you saw in the correlation plots?_
 
 ---
 
@@ -453,8 +437,6 @@ Please assemble yourselves into groups of about 2-3 people.
 
 ### Saving / exporting plots
 
-We will go through using ```pdf()``` and ```dev.off()``` in class.
-
 ```
 * jpeg()
 * pdf()
@@ -489,7 +471,9 @@ Repeat the in class exercise, using the same data set that you chose in class.
 
 This time, visualize the data using two different types of plots, or two different versions of the same plot to answer a single question you have about the data.
 
-What are the benefits of each choice?
+What are the benefits of each choice? What would the ideal plot look like?
+
+Extra: What sort of hypothesis might you test, and how would you determine statistical significance of the result (thinking ahead to the lesson on data analysis in R)?
 
 ---
 
