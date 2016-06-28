@@ -51,9 +51,9 @@ There are many plot types available in base R. We will go through some of the fo
 ### Example Data: airports.csv
 
 ```
-> download.file("https://dl.dropboxusercontent.com/u/6965753/airport.data/airports.csv")
+> download.file("https://dl.dropboxusercontent.com/u/6965753/airport.data/airports.csv", destfile="airports.csv")
 > dat <- read.csv("airports.csv")
-> names(data)
+> names(dat)
 ```
 
 The description of this data set is available here: [OpenFlights Airport Database](http://openflights.org/data.html)
@@ -142,7 +142,7 @@ _What is R doing here?_
 
 It is basically taking one vector (a column from your data frame) and plotting it against another vector (another column from your data frame). The vectors have to be the same length (which is fine, because all data frames are rectangular), and in the same order (the 10th value of the x vector corresponds to the 10th value of the y vector). If there is a missing (```NA```) value in one of the columns, R will not plot a point for that 'row' of data. So, there should be the same number of points in a scatterplot as there are full, paired x and y coordinates.
 
-You can think of the ```~``` symbol as indicating regression of one variable on another, or as indicating "y vs. x", in that order. _What happens if you instead use_ ```plot(latitude, longitude, data=data)```?
+You can think of the ```~``` symbol as indicating regression of one variable on another, or as indicating "y vs. x", in that order.
 
 We can change the format of the plot. Perhaps we want to shrink the points and fill them in so that they are not empty circles. We can use something called ```pch``` to set the _p_ lot _ch_ aracter or symbol (I am not sure if that what PCH means, but it is easy to remember).
 
@@ -392,13 +392,18 @@ Please assemble yourselves into groups of about 2-3 people.
 > library(help="datasets")
 ```
 
-**Step 2.** Choose one of the data sets that interests you (or the one which is the least uninteresting to you), and read it into R using the ```data()``` function.
+**Step 2.** Choose one of the data sets that interests you (or the one which is the least uninteresting to you), and read it into R using the ```data()``` function. 
+
+**Here are some suggested data sets for:**
+
+* _Histogram, Density, and/or Scatterplot:_ iris, USArrests, mtcars, pressure, quakes, randu, rock, stackloss, trees, women
+* _Correlation Plot:_ USArrests, mtcars, quakes, randu, rock, trees
 
 **Step 3.** Find the column names (and row names, if applicable) of the data set you chose.
 
 * In the last class, we learned to use ```head()```, ```str()```, ```levels()```, ```dim()```, ```nrow()```, ```ncol()```, ```mean()```, and other functions. Can you apply these to your data set (data frame)?
 
-**Step 4.** Decide on two columns that you would like to plot against each other (y vs. x) using a ```line``` or ```points``` plot.
+**Step 4.** Decide on two columns that you would like to plot against each other (y vs. x) using a ```line``` or ```points``` (scatter) plot. If you are using a histogram or density plot, decide on one column to visualize.
 
 * What question are you asking of the data at this point?
 * What do you expect to see?
@@ -411,7 +416,7 @@ Please assemble yourselves into groups of about 2-3 people.
 * Did the plot help to answer the question you had about the data?
 * How did the plot differ from what you expected?
 * How might you improve the plot (layout, color, text size, format, etc.) so that it is more publication-worthy?
-* What other questions might you ask of the data, and what plots would you use? (See Homework)
+* What other questions might you ask of the data, and what plots would you use?
 
 ---
 
@@ -503,12 +508,6 @@ Parts of this lesson were sourced from this site (a quick read!): [R Base Graphi
 * [BoxPlotR](http://boxplot.tyerslab.com)
 * [Revolution Analytics: graphics](http://blog.revolutionanalytics.com/graphics/)
 * [R Graphics](https://www.stat.auckland.ac.nz/~paul/RG2e/)
-
-
-### Other topics
-
-* [BMJ Statistics Notes](http://www.bmj.com/specialties/statistics-notes)
-* [Experimental Design (Institute for Lab Animal Research)](http://ilarjournal.oxfordjournals.org/content/55/3)
 
 ### Books
 
