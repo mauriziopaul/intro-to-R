@@ -51,7 +51,7 @@ There are many plot types available in base R. We will go through some of the fo
 ### Example Data: airports.csv
 
 ```
-> download.file("https://dl.dropboxusercontent.com/u/6965753/airport.data/airports.csv", destfile="airports.csv")
+> download.file("http://mauriziopaul.github.io/intro-to-R/data/airports.csv", destfile="airports.csv")
 > dat <- read.csv("airports.csv")
 > names(dat)
 ```
