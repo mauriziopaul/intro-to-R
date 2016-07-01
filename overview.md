@@ -5,7 +5,7 @@ permalink: /overview/
 ---
 
 ### How To Learn to Code (2016)
-This is the **Introduction to R** (Small Group Coding) website for Katrina and Paul's lessons. The syllabus is available here: [Introduction to R Syllabus](http://mauriziopaul.github.io/intro-to-R/teachingResources/Syllabus_IntroToR.pdf).
+This is the **Introduction to R** (Small Group Coding) website for Katrina and Paul's lessons. The syllabus is available here: [Introduction to R Syllabus](http://mauriziopaul.github.io/intro-to-R/teachingResources/Syllabus_IntroToR.pdf). _The syllabus has been updated (July 1st, 2016)_.
 
 The WordPress website for the HtLtC summer series can be found here:
 [howtolearntocode](http://howtolearntocode.web.unc.edu).
