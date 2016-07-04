@@ -55,5 +55,15 @@ if (candidate == 'Thomas Jefferson') {
 years <- c(NA, 1776, 1780, 1781, 1789, 1800)
 
 
+for (x in 3:10) {
+    print(x * (x - 1) / 2)
+}
+
+calculate <- function(x) {
+    return(x * (x - 1) / 2)
+}
+
+sapply(3:10, calculate)
+
 
 
