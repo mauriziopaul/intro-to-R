@@ -115,7 +115,7 @@ It can also be used with the `ifelse` function, which takes three arguments: a l
 
 (Ladies, tell your husbands, vote for Burr!)
 
-In addition, you can perform logical tests on logical vectors. The `any` command takes a logical vector and returns `TRUE` if any element is `TRUE`, and `FALSE` otherwise (e.g. `any(is.na(years))`). The `all` command is similar, except it returns true only if **all** elements are `TRUE`
+In addition, you can perform logical tests on logical vectors. The `any` command takes a logical vector and returns `TRUE` if any element is `TRUE`, and `FALSE` otherwise (e.g. `any(is.na(years))`). The `all` command is similar, except it returns true only if **all** elements are `TRUE`.
 
 What questions can you ask about the `years` vector?
 
