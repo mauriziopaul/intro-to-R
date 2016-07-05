@@ -13,32 +13,6 @@ characters <- data.frame(
     stringsAsFactors = FALSE
 )
 
-songs <- c('Alexander Hamilton', 'Aaron Burr, Sir', 'My Shot',
-           'The Story Of Tonight', 'The Schuyler Sisters', 
-           'Farmer Refuted', "You'll Be Back", 'Right Hand Man',
-           "A Winter's Ball", 'Helpless', 'Satisfied',
-           'The Story of Tonight - Reprise', 'Wait For It',
-           'Stay Alive', 'Ten Duel Commandments', 'Meet Me Inside',
-           'That Would Be Enough', 'Guns and Ships',
-           'History Has Its Eyes On You',
-           'Yorktown (The World Turned Upside Down)', 'What Comes Next?',
-           'Dear Theodosia', 'Non-Stop')
-
-president <- 'John Adams'
-if (president %in% characters$Person) {
-    print('in data frame')
-} else {
-    print('not in data frame')
-}
-
-
-year <- 1776
-if (year < 1776) {
-    america <- FALSE
-} else {
-    america <- TRUE
-}
-america
 
 
 candidate <- 'John Adams'
@@ -55,15 +29,7 @@ if (candidate == 'Thomas Jefferson') {
 years <- c(NA, 1776, 1780, 1781, 1789, 1800)
 
 
-for (x in 3:10) {
-    print(x * (x - 1) / 2)
-}
 
-calculate <- function(x) {
-    return(x * (x - 1) / 2)
-}
-
-sapply(3:10, calculate)
 
 
 

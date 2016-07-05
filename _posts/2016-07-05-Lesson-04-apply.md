@@ -11,13 +11,13 @@ categories: jekyll
 
 ---
 
-In this lesson we will cover logic, loops, and the apply family of functions in R--the nuts and bolts of coding in R.
+In this lesson we will cover logic, loops, and the apply family of functions in R--the nuts and bolts of coding in R. This lesson uses this [R script](http://mauriziopaul.github.io/intro-to-R/teachingResources/logic.R).
 
 ## Logical comparisons
 
 ### if statements
 
-"If statements" evaluate a logical expression, and if the logical expression is `TRUE`, execute code.
+"If statements" evaluate a logical expression, and if the logical expression is `TRUE`, executes code in a block.
 
 ```
 > president <- 'John Adams'
@@ -129,15 +129,15 @@ For loops iterate over a series of numbers, performing an operation for each num
 + }
 ```
 
-prints the result of `x * (x - 1) / 2` for each number from 3 to 10. Try it!
+prints the result of `x * (x - 1) / 2` for each number from 3 to 10.
 
-While for loops are a staple of other languages, **they are bad form in R**. R is built to perform operations vector-wise, not a single element at a time. In R, loops are slower than vector-based operations and require special assignment operators if you want to save variables in a for loop.
+In general, you should _say no to this_. While for loops are a staple of other languages, **they are bad form in R**. R is built to perform operations vector-wise, not a single element at a time. In R, loops are slower than vector-based operations and require special assignment operators if you want to save variables in a for loop.
 
 Instead, in R we use the **apply** family of functions. These functions accomplish the same thing that for loops do, but R processes them much faster.
 
 ## The apply family of functions
 
-Here is a brief introduction to some of the most important members of the apply family of functions. If you ever want to perform some kind of repetitive action in R, there is probably a way of accomplishing the task using a member of the apply family. 
+You ready for more yet? Here is a brief and incomplete introduction to some of the most important members of the apply family of functions. If you ever want to perform some kind of repetitive action in R, there is probably a way of accomplishing the task using a member of the apply family. 
 
 ### lapply and sapply
 
@@ -184,7 +184,7 @@ Can you create a function that takes two arguments, `x` and `y`, and returns a s
 
 `apply` performs a function over the margins (dimensions) of a matrix. It takes three arguments: a matrix, the margin to operate on, and the function.
 
-Rows are dimension 1, columns are dimension 2. You may even have a multi-dimensional matrix
+Rows are dimension 1, columns are dimension 2. You may even have a multi-dimensional matrix, in which you can apply a function in dimensions larger than 2.
 
 Let's create a matrix and use `apply` to get the sums of each row.
 
@@ -204,7 +204,7 @@ Let's create a matrix and use `apply` to get the sums of each row.
 
 How can we get the sums of each column using apply? How can we get the median of each column?
 
-There are also four functions to find the means and the sums of a two-dimensional matrix built-in: `rowSums`, `rowMeans`, `colSums`, `colMeans`. Do you get the same results with these functions that you do with `apply`?
+There are four functions to find the means and the sums of a two-dimensional matrix built-in: `rowSums`, `rowMeans`, `colSums`, `colMeans`. Do you get the same results with these functions that you do with `apply`?
 
 ### mapply
 
@@ -229,12 +229,20 @@ For example, we can calculate the age of each of our characters using `mapply`:
 6            Thomas Jefferson 1743 1826   Male Virginia      Yes  83
 ```
 
-(This is for purposes of example. An easier way to do this specific task would be `characters$Age <- characters$Died - characters$Born`.)
+(This is a simple example. An easier way to do this specific task would be `characters$Age <- characters$Died - characters$Born`.)
 
 ## Homework
 
+Save the following calculations in a script:
+
+1. Create a 10 x 10 matrix with numbers fitting a normal distribution (`matrix(rnorm(100, mean=X, sd=Y), 10, 10)`, where X and Y are numbers of your choice). Find the means and standard deviations of each row and column. Do these correspond to the values you chose for the `rnorm` inputs?
+2. How many values in your matrix are more than one standard deviation above the mean?
+3. Which values in your matrix are between one and two standard deviations below the mean?
+4. Plot a histogram (`?hist`) of petal lengths in the `iris` data set, excluding flowers of the setosa species.
+
 ## Resources
 
+* [Statistical Analysis: an Introduction using R/R/Logical operations](https://en.wikibooks.org/wiki/Statistical_Analysis:_an_Introduction_using_R/R/Logical_operations)
 * [A brief introduction to "apply" in R](https://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/)
 
 
