@@ -61,6 +61,10 @@ hist(exp)
 # Modeling Data
 #---------------
 
+#install.packages("beeswarm")
+
+library("beeswarm")
+
 iris.sub <- droplevels(subset(iris, 
 	Species %in% c("setosa", "versicolor")))
 plot(Sepal.Length ~ Species, data = iris.sub)
