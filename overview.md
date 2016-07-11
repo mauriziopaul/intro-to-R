@@ -26,7 +26,7 @@ The WordPress website for the HtLtC summer series can be found here:
 2. Basic Operations: [Lesson02.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson02.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/20/Lesson-02-basic-operations).
 3. Basic Plotting: [Lesson03.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson03.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/27/Lesson-03-basic-plotting).
 4. Loops, Logic, and Apply: [Lesson04.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson04.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/07/05/Lesson-04-apply)
-5. Data Modeling
+5. Data Modeling: [Lesson05.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson05.pdf), [html](http://mauriziopaul.github.io/intro-to-R/statistics/2016/07/11/Lesson-05-data-modeling)
 6. Data Wrangling
 7. Advanced Plotting
 8. Course Project and Review
