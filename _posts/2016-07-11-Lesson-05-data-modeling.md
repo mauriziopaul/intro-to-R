@@ -237,7 +237,7 @@ Conveniently, the second method, using a formula, is both simpler and consistent
 
 **Paired**
 
-Suppose we had before/after data, and we wanted to see if there was a difference in the `before` and `after` values, accounting for the pairing of the data.
+Suppose we had before/after data, and we wanted to see if there was a difference in the `before` and `after` values, accounting for the pairing of the data (data from here: [http://www.r-bloggers.com/paired-students-t-test/](http://www.r-bloggers.com/paired-students-t-test/)).
 
 ```
 before = c(12.9, 13.5, 12.8, 15.6, 17.2, 19.2, 12.6, 15.3, 14.4, 11.3)

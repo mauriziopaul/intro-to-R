@@ -35,7 +35,7 @@ barplot(datmat)
 barplot(table(m.sub.word$minute))
 
 hist(datmat, xlim=c(0,16), breaks=15, xlab="rate per min")
-hist(rpois(n=421, lambda=4.252525), xlim=c(0,16), breaks=10, xlab="rate per min")
+hist(rpois(n=10000, lambda=4.252525), xlim=c(0,16), breaks=10, xlab="rate per min")
 
 dpois(x=5, lambda=4.252525)
 
@@ -53,7 +53,7 @@ hist(bin, breaks=2)
 
 mean(bin)
 
-exp <- rexp(n=100, rate=5)
+exp <- rexp(n=10000, rate=5)
 plot(exp, pch=16)
 hist(exp)
 
@@ -70,11 +70,13 @@ iris.sub <- droplevels(subset(iris,
 plot(Sepal.Length ~ Species, data = iris.sub)
 beeswarm(Sepal.Length ~ Species, data=iris.sub, add=TRUE, pch=16)
 
-with(iris.sub, t.test(Sepal.Length[Species == 1], 
-	Sepal.Length[Species == 2]))
+with(iris.sub, t.test(Sepal.Length[Species == "setosa"], 
+	Sepal.Length[Species == "versicolor"]))
 t.test(Sepal.Length ~ Species, data = iris.sub)
 
-t.test(Sepal.Length ~ Species, data = iris.sub, paired=TRUE)
+before = c(12.9, 13.5, 12.8, 15.6, 17.2, 19.2, 12.6, 15.3, 14.4, 11.3)
+after = c(12.0, 12.2, 11.2, 13.0, 15.0, 15.8, 12.2, 13.4, 12.9, 11.0)
+t.test(before, after, paired=TRUE)
 
 plot(Sepal.Length ~ Species, data = iris)
 beeswarm(Sepal.Length ~ Species, data=iris, add=TRUE, pch=16)
