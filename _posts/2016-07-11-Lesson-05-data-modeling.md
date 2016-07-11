@@ -226,8 +226,8 @@ beeswarm(Sepal.Length ~ Species, data=iris.sub, add=TRUE, pch=16)
 The two methods below are essentially equivalent.
 
 ```
-with(iris.sub, t.test(Sepal.Length[Species == 1], 
-	Sepal.Length[Species == 2]))
+with(iris.sub, t.test(Sepal.Length[Species == "setosa"], 
+	Sepal.Length[Species == "versicolor"]))
 t.test(Sepal.Length ~ Species, data = iris.sub)
 ```
 
@@ -237,13 +237,13 @@ Conveniently, the second method, using a formula, is both simpler and consistent
 
 **Paired**
 
-In the iris data set, it is likely that each row represents one individual plant. Therefore, the `t.test` should be **paired**.
+Suppose we had before/after data, and we wanted to see if there was a difference in the `before` and `after` values, accounting for the pairing of the data.
 
 ```
-t.test(Sepal.Length ~ Species, data = iris.sub, paired=TRUE)
+before = c(12.9, 13.5, 12.8, 15.6, 17.2, 19.2, 12.6, 15.3, 14.4, 11.3)
+after = c(12.0, 12.2, 11.2, 13.0, 15.0, 15.8, 12.2, 13.4, 12.9, 11.0)
+t.test(before, after, paired=TRUE)
 ```
-
-What is the difference between the paired and unpaired results?
 
 ## Linear Regression
 Suppose we wanted to know if there was a significant effect of `Species` on `Sepal.Length`, but there are more than two groups of `Species` in our data set. We would start by building a linear model of our data.
