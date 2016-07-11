@@ -12,7 +12,9 @@ use_math : true
 
 ---
 
-In this lesson, we will try to introduce: (1) probability distributions in R, and (2) modeling data in R using built-in statistical functions.  It is helpful to think about what type of distribution each of your data columns is coming from, in order to do hypothesis tests, estimation, prediction, and/or any other statistical inference.
+In this lesson, I will present a basic overview of: (1) probability distributions in R, and (2) modeling data in R using built-in statistical functions.  It is helpful to think about what type of statistical distribution best captures the pattern of your data, in order to do hypothesis tests, estimation, prediction, and/or any other statistical inference. 
+
+We will use the code that is provided in this [script](http://mauriziopaul.github.io/intro-to-R/scripts/Lesson05code.R).
 
 ---
 
@@ -39,11 +41,11 @@ such that the `norm` or normal distribution in R is accessed using `dnorm()`, `p
 
 [^normisnotnormal]: The function `norm()` is not related to the four normal distribution functions. It is used for an unrelated matrix algebra calculation.
 
-To simulate random data, will mostly use the `r*` prefix. This should be familiar to you. In Lesson 03 and Lesson 04, we encountered the random normal, `rnorm()` distribution, and in Lesson 04, the random uniform `runif()` distribution. Two other probability distributions you may be familiar with from an introductory probability/statistics course are: (1) the [Poisson](https://en.wikipedia.org/wiki/Poisson_distribution), `rpoiss()` distribution, and (2) the [binomial](https://en.wikipedia.org/wiki/Binomial_distribution), `rbinom()`, distribution. In contrast with the normal and uniform distributions, which are *continuous*, these distributions are *discrete*, i.e. they deal with count data.
+To simulate random data, will mostly use the `r*` prefix. This should be familiar to you. In Lesson 03 and Lesson 04, we encountered the random normal, `rnorm()` distribution, and in Lesson 04, the random (continuous) uniform `runif()` distribution. A few other probability distributions you may be familiar with from an introductory probability/statistics course are: (1) the [Poisson](https://en.wikipedia.org/wiki/Poisson_distribution), `rpoiss()` distribution, (2) the [binomial](https://en.wikipedia.org/wiki/Binomial_distribution), `rbinom()`, distribution, and the [exponential](https://en.wikipedia.org/wiki/Exponential_distribution), `rexp()`, distribution. In contrast with the normal, uniform, and exponential distributions, which are *continuous*, the Poisson and Binomial distributions are *discrete*, i.e. they deal with count data.
 
 ### Poisson
 
-In the poisson distribution, we can describe the expected number of times that an event will occur within a given time period (or volume, or genome length, etc.) Or more precisely, we describe the expected **rate of occurrence**, for 'rare' events.
+In the poisson distribution, we can describe the expected number of times that an event will occur within a given time period (or volume, or genome length, etc.) Or more precisely, we describe the expected **rate of occurrence**.
 
 One assumption we make when modeling data with a Poisson distribution is that the number of occurrences within each given interval is independently drawn from an identical underlying distribution. That means that if we know the numer of events for the first interval, this does not affect the expected number of events for the next interval, and so on.
 
@@ -78,7 +80,7 @@ dpois(x=2, lambda=1.5)
 
 This is not a very sophisticated form of prediction. However, this enables us to retrieve a probability of an event, after making some assumptions about the underlying distribution, `poisson`, and parameter(s), `lambda`.
 
-### Movie Data
+**Data Set: Bad Words in Select Movies**
 
 Read in the data.
 
@@ -95,9 +97,11 @@ The column `movie` has seven levels corresponding to 7 movies.
 
 The column `type` has two levels corresponding to the type of event being recorded (`word` or `death`).
 
-The column `word` has 61 levels corresponding to 60 unique _censored_ words (not appropriate for class, thus bleeped out), with `word_1` representing a placeholder for death (I could have reassigned these to have `NA` values).
+The column `word` has 61 levels corresponding to 60 unique _censored_ words (not appropriate for class, thus bleeped out), with `word_1` representing a placeholder for death (I could have reassigned these to have `NA` values). [^afterclass]
 
-The final column, `minutes_in`, is a numeric/float column, which indicates how many minutes into the movie the event occurs, with  values extending between 0.4 to 160.4.
+The final column, `minutes_in`, is a numeric/float column, which indicates how many minutes into the movie the event occurs, with  values extending between 0.4 to 160.4. 
+
+[^afterclass]: This data set was cleaned up from one that was used in a [FiveThirtyEight.com](http://FiveThirtyEight.com) article, which you can try to find yourself after class.
 
 **Example: Prediction, revisited**
 
@@ -105,10 +109,11 @@ In this case, we want to know the average per-minute rate for a specific event, 
 
 This will take a little bit of pre-processing to get through.
 
-Let's start with `movie=="Reservoir Dogs"`, and focus on the `type=="word"` events.
+Let's start with `movie=="Reservoir Dogs"`, and focus on the `type=="word"` events. We will convert the fractional minutes to whole minute values using the `floor` command.
 
 ```
 m.sub.word <- subset(mov, movie=="Reservoir Dogs" & type=="word")
+m.sub.word$minute <- floor(m.sub.word$minutes_in)
 ```
 
 This data set does not specify the total number of minutes in the movie, but let's suppose that we know from elsewhere that the movie has 99 minutes in it (from minute 0 through minute 98).
@@ -119,7 +124,41 @@ How many `word` events are there?
 nrow(m.sub.word)
 ```
 
-To get the rate, we can simply divide the number of `word` events in the movie (`=421`) by the number of minutes in the film (`=99`), to get the estimate of 4.252525 words per minute of film. If we take that to be our {% raw %}{::nomarkdown}$\lambda${:/}{% endraw %}, and we want to know what is the probability that `x=5`, for a Poisson with {% raw %}{::nomarkdown}$\lambda=4.252525${:/}{% endraw %}, we have:
+We can make a table of counts per minute across all 99 minutes, including all the minutes with zero counts. [^betterway]
+
+```
+datmat <- table(rep(0:98))
+
+for(i in 0:98){
+	thiscount <- nrow(subset(m.sub.word, minute==i))
+	datmat[names(datmat)==i] <- thiscount
+}
+```
+
+What is the average count per minute, and the range of counts per minute? Let's also plot these in a bar plot.
+
+```
+mean(datmat)
+range(datmat)
+barplot(datmat)
+```
+
+How does the following plot differ from the last?
+
+```
+barplot(table(m.sub.word$minute))
+```
+
+What does the distribution of rates look like? How does it compare with a random sample from a Poisson distribution that has the same `n` and `lambda` as our data?
+
+```
+hist(datmat, xlim=c(0,16), breaks=15, xlab="rate per min")
+hist(rpois(n=421, lambda=4.252525), xlim=c(0,16), breaks=10, xlab="rate per min")
+```
+
+[^betterway]: There is probably a better way to do this, but this code is fairly easy to follow.
+
+If we take that to be our {% raw %}{::nomarkdown}$\lambda${:/}{% endraw %}, and we want to know what is the probability that `x=5`, for a Poisson with {% raw %}{::nomarkdown}$\lambda=4.252525${:/}{% endraw %}, we have:
 
 ```
 dpois(x=5, lambda=4.252525)
@@ -127,14 +166,47 @@ dpois(x=5, lambda=4.252525)
 
 or a `16.49%` chance of happening.
 
-Now, how might this relate to health and medicine? One example of a problem in modern biomedical research that often uses the Poisson (or related) distributions is the modeling of transcriptome data using next-generation RNA-seq. Imagine that the minutes in the movie are instead nucleotides across a chromosome, and that the number of `word` occurrences are the read counts (depth) at each nucleotide site. 
+The Poisson distribution may or may not be a good fit for this specific data set. However, the Poisson distribution, and related distributions (such as the negative binomial), are useful for modeling next-gen sequencing data. Consider an RNA-seq experiment, and imagine that the minutes in the movie are instead nucleotides across a chromosome / transcriptome, and that the number of `word` occurrences are the read counts (depth) at each nucleotide site. This is the foundation for our understanding of the distribution of short read counts in an RNA-seq experiment.
 
 Additional details about other probability distributions are available at this link:
 [http://www.r-tutor.com/elementary-statistics/probability-distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions)
 
+## Other Distributions
+
+**Binomial**
+
+```
+bin <- rbinom(n=100,size=1,prob=0.5)
+plot(bin, pch=16, ylim=c(-1,2))
+hist(bin, breaks=2)
+
+bin <- rbinom(n=100,size=1,prob=0.2)
+plot(bin, pch=16, ylim=c(-1,2))
+hist(bin, breaks=2)
+```
+
+Try changing the number of samples (`n`), or the probability (i.e., coin flip "bias") and plotting the result. How close does your sample, `bin`, come to the probability that you set?
+
+```
+mean(bin)
+```
+
+**Exponential**
+
+```
+exp <- rexp(n=100, rate=5)
+plot(exp, pch=16)
+hist(exp)
+```
+
+And so on. See some additional details here [http://www.statmethods.net/advgraphs/probability.html](http://www.statmethods.net/advgraphs/probability.html), and here
+[http://www.cyclismo.org/tutorial/R/probability.html](http://www.cyclismo.org/tutorial/R/probability.html)
+
+---
+
 # Modeling Data in R
 
-The point of this section is to show you the relevant functions for simple data modeling, not to teach you the theory behind the models. Please use other references to make sure you understand what test you are performing.
+The point of this section is to show you the relevant functions for simple data modeling, not to teach you the theory behind the models.
 
 ## The Student's _t_-test
 
@@ -246,6 +318,7 @@ boxplot(breaks ~ wool * tension, data=warpbreaks, add=TRUE)
 ```
 
 Let's fit the data with a linear model.
+
 ```
 wbfit <- lm(breaks ~ wool * tension, data=warpbreaks)
 ```
@@ -304,13 +377,17 @@ qqnorm(iris$Petal.Width)
 qqline(iris$Petal.Width)
 ```
 
-What if we subset on a single species?
+How else might you compare the distribution of the iris data with a _true_ random normal distribution?
 
 ---
 
 # Homework
 
+1. Using `barplot`, plot the number of `words` that occur in Django Unchained, which is 165 minutes long.
 
+2. Run an `anova` test on the `Petal.Length ~ Species` in the `iris` data set.
+
+3. Let's assume that the average number of goals scored in a World Cup football (soccer) match is 2.8, and the score per match follows a Poisson distribution. What is the probability that there will be 4 goals scored in the next World Cup football match?
 
 ---
 
