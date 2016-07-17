@@ -13,6 +13,13 @@ categories: jekyll
 
 In this lesson, we will cover new methods for data management and data analysis workflows.
 
+For this lesson, the following will be helpful:
+
+* [Code]([script](http://mauriziopaul.github.io/intro-to-R/scripts/Lesson06code.R))
+* [Data set 1: Census data](http://mauriziopaul.github.io/intro-to-R/data/CENSUS_POP_ESTIMATES.csv)
+* [Data set 2: Airport data](http://mauriziopaul.github.io/intro-to-R/data/airports.csv)
+* [Data set 3: Country data](http://mauriziopaul.github.io/intro-to-R/data/country-codes.csv)
+
 ## Basics of scientific workflows
 
 **Store original data in a text file**
