@@ -26,8 +26,8 @@ The WordPress website for the HtLtC summer series can be found here:
 2. Basic Operations: [Lesson02.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson02.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/20/Lesson-02-basic-operations).
 3. Basic Plotting: [Lesson03.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson03.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/06/27/Lesson-03-basic-plotting).
 4. Loops, Logic, and Apply: [Lesson04.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson04.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/07/05/Lesson-04-apply)
-5. Data Modeling: [Lesson05.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson05.pdf), [html](http://mauriziopaul.github.io/intro-to-R/statistics/2016/07/11/Lesson-05-data-modeling)
-6. Data Wrangling
+5. Data Modeling: [Lesson05.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson05.pdf), [html](http://mauriziopaul.github.io/intro-to-R/statistics/2016/07/11/Lesson-05-data-modeling), [HW key](http://mauriziopaul.github.io/intro-to-R/homeworks/Lesson05Homework.R)
+6. Data Wrangling: [Lesson06.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson06.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/07/18/Lesson-06-data-wrangling) 
 7. Advanced Plotting
 8. Course Project and Review
 

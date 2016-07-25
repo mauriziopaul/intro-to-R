@@ -20,4 +20,4 @@ We will go over a specific example of this in class.
 	* Plot of results
 	* Discussion
 
-All members of the HtLtC 2016 Summer Series will present their final projects on **August 1st, 2016**.
+All members of the HtLtC 2016 Summer Series will present their final projects on **Thursday, August 4th, 2016**.
