@@ -15,6 +15,8 @@ In this lesson we will learn how to use the ggplot2 (based on the Grammar of Gra
 
 You can install ggplot2 with `install.packages("ggplot2")` and load it into your environment with `library(ggplot2)`.
 
+Code for this lesson can be found [here](http://mauriziopaul.github.io/intro-to-R/scripts/Lesson07code.R).
+
 ## Why ggplot2?
 
 We just learned about plotting in base R. ggplot2 is another package by Hadley Wickham, that allows for plotting with a different approach than in base R, using a [grammar of graphics](http://vita.had.co.nz/papers/layered-grammar.html) (hence the package name).
@@ -69,7 +71,7 @@ ggplot(diamonds, aes(x=carat, y=price)) +
     geom_point()
 ```
 
-![ggplot](../images/Lesson07/caratvsprice.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/caratvsprice.png)
 
 All plots in ggplot2 are created this way: with the first line being a data set (and optional aesthetics), and "adding" additional geoms or graphical parameters to the command.
 
@@ -84,7 +86,7 @@ ggplot(diamonds, aes(x=carat, y=price)) +
     geom_point(aes(colour=cut))
 ```
 
-![ggplot](../images/Lesson07/caratvsprice_color.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/caratvsprice_color.png)
 
 So easy!
 
@@ -139,7 +141,7 @@ ggplot(economics, aes(x=date, y=unemploy)) +
     geom_line()
 ```
 
-![ggplot](../images/Lesson07/economics.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/economics.png)
 
 If we're only interested in the last 16 years, we can change the plotting limits using the `coord_cartesian` function:
 
@@ -149,7 +151,7 @@ ggplot(economics, aes(x=date, y=unemploy)) +
     coord_cartesian(xlim=c(as.Date("2000-01-01"), as.Date("2015-04-01")))
 ```
 
-![ggplot](../images/Lesson07/econ_limited.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/econ_limited.png)
 
 Because the `date` column is in Date format, we have to coerce the strings into Dates to adjust the plotting limits via the `xlim` argument.
 
@@ -164,7 +166,7 @@ ggplot(msleep, aes(x=brainwt, y=bodywt)) +
     geom_point(aes(colour=vore))
 ```
 
-![ggplot](../images/Lesson07/mammals1.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/mammals1.png)
 
 This data doesn't look good on a scatter plot--probably because both the body weight and brain weight fall into an exponential distribution. Log-transforming this data will make visualizing it much better.
 
@@ -177,7 +179,7 @@ ggplot(msleep, aes(x=bodywt, y=brainwt)) +
     scale_y_log10()
 ```
 
-![ggplot](../images/Lesson07/mammals2.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/mammals2.png)
 
 The plot looks much cleaner, and the relationship between body weight and brain weight is evident.
 
@@ -190,7 +192,7 @@ ggplot(midwest, aes(x=percollege)) +
     geom_histogram()
 ```
 
-![ggplot](../images/Lesson07/midwest1.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/midwest1.png)
 
 We can change the bin width using the `binwidth` argument, but for this plot the default width seems fine.
 
@@ -201,7 +203,7 @@ ggplot(midwest, aes(x=percollege)) +
     geom_histogram(aes(fill=state))
 ```
 
-![ggplot](../images/Lesson07/midwest2.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/midwest2.png)
 
 This method of plotting, with stacked bars, makes it difficult to see all the data. We can change that using the option `position="dodge"` inside the histogram call, which places the bars next to each other instead of stacked.
 
@@ -210,7 +212,7 @@ ggplot(midwest, aes(x=percollege)) +
     geom_histogram(aes(fill=state), position='dodge')
 ```
 
-![ggplot](../images/Lesson07/midwest3.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/midwest3.png)
 
 The resolution on this is too fine to see a difference. We can make the same plot, but change the bin size:
 
@@ -219,7 +221,7 @@ ggplot(midwest, aes(x=percollege)) +
     geom_histogram(aes(fill=state), position='dodge', binwidth=5)
 ```
 
-![ggplot](../images/Lesson07/midwest4.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/midwest4.png)
 
 Great! This is looking, if not publication-worthy, at least good enough to send to collaborators. However, the graph doesn't have a title, and the x-axis label is not very descriptive. We can change the plot title and the axis labels using the `labs` function:
 
@@ -229,7 +231,7 @@ ggplot(midwest, aes(x=percollege)) +
     labs(title='College attendance by state', x='Percent college')
 ```
 
-![ggplot](../images/Lesson07/midwest5.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/midwest5.png)
 
 Note that here we're adding another command to our ggplot2 set of function calls, again using `+`.
 
@@ -242,7 +244,7 @@ ggplot(midwest, aes(x=percollege)) +
     geom_density(aes(fill=state))
 ```
 
-![ggplot](../images/Lesson07/midwest6.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/midwest6.png)
 
 Unfortunately, these density plots overlap each other, so we need to add transparency:
 
@@ -251,7 +253,7 @@ ggplot(midwest, aes(x=percollege)) +
     geom_density(aes(fill=state), alpha=0.3)
 ```
 
-![ggplot](../images/Lesson07/midwest7.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/midwest7.png)
 
 It seems like Wisconsin is the most-educated state out of these five.
 
@@ -266,7 +268,7 @@ ggplot(iris, aes(x=Species, y=Sepal.Length)) +
     geom_boxplot()
 ```
 
-![ggplot](../images/Lesson07/iris1.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/iris1.png)
 
 Using ggplot2, we can layer multiple geoms on the same plot. Boxplots let us see the distributions of the data, but we can add individual data points with `geom_jitter` (a "jittered" extension of `geom_point`).
 
@@ -276,7 +278,7 @@ ggplot(iris, aes(x=Species, y=Sepal.Length)) +
     geom_jitter(aes(colour=Species))
 ```
 
-![ggplot](../images/Lesson07/iris2.png)
+![ggplot](http://mauriziopaul.github.io/intro-to-R/images/Lesson07/iris2.png)
 
 Displaying individual data points, in this organized fashion, gives a complete and easily-interpretable picture of the data.
 
