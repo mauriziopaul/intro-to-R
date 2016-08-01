@@ -29,7 +29,7 @@ The WordPress website for the HtLtC summer series can be found here:
 5. Data Modeling: [Lesson05.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson05.pdf), [html](http://mauriziopaul.github.io/intro-to-R/statistics/2016/07/11/Lesson-05-data-modeling), [HW key](http://mauriziopaul.github.io/intro-to-R/homeworks/Lesson05Homework.R)
 6. Data Wrangling: [Lesson06.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson06.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/07/18/Lesson-06-data-wrangling), [HW key](http://mauriziopaul.github.io/intro-to-R/homeworks/Lesson06Homework.R)
 7. Advanced Plotting [Lesson07.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson07.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/07/25/Lesson-07-advanced-plotting)
-8. Course Project and Review
+8. Course Project and Review [Lesson08.pdf](http://mauriziopaul.github.io/intro-to-R/lecturePDFs/Lesson08.pdf), [html](http://mauriziopaul.github.io/intro-to-R/jekyll/2016/08/01/Lesson-08-project-and-review)
 
 ### R Instructors
 You can find out more about Paul at his main GitHub.io page, [https://mauriziopaul.github.io](https://mauriziopaul.github.io), or at his GitHub user page: {% include icon-github.html username="mauriziopaul" %}
