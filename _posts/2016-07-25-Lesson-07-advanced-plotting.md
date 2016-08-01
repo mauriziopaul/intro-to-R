@@ -291,6 +291,7 @@ Displaying individual data points, in this organized fashion, gives a complete a
 
 * [ggplot2 cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
 * [Become a superhero, handle your data with R](http://cierareports.org/blog/2013/10/18/rCourse2013/index.html)
-* [Introduction to R graphics with ggplot2](http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html)
+* [Colors in ggplot2](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
+* Good tutorial: [Introduction to R graphics with ggplot2](http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html)
 
 
