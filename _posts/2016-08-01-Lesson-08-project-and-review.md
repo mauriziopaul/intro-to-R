@@ -67,11 +67,7 @@ There are many online resources for learning R and "Data Science".
 
 * [R Programming @ Coursera](https://www.coursera.org/learn/r-programming)
 
-* [Lessons for Python and R @ Data Camp](https://www.datacamp.com)
-
-* [Data Camp Videos @ YouTube](https://www.youtube.com/channel/UC79Gv3mYp6zKiSwYemEik9A)
-
-* [R Bootcam @ Leada](https://www.teamleada.com/courses/r-bootcamp)
+* [R Bootcamp @ Leada](https://www.teamleada.com/courses/r-bootcamp)
 
 * [R Studio Links for Learning R](https://www.rstudio.com/online-learning/#R)
 
